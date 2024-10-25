@@ -7,12 +7,14 @@ class CallBackOperator(object):
         "tenant_key": str,
         "user_id": str,
         "open_id": str,
+        "union_id": str,
     }
 
     def __init__(self, d=None):
         self.tenant_key: Optional[str] = None
         self.user_id: Optional[str] = None
         self.open_id: Optional[str] = None
+        self.union_id: Optional[str] = None
         init(self, d, self._types)
 
 
