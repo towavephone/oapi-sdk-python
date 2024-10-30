@@ -1,10 +1,7 @@
-from flask import Flask
-
 import lark_oapi as lark
-from event.callback.model.p2_card_action_trigger import P2CardActionTrigger, P2CardActionTriggerResponse
-from event.callback.model.p2_url_preview_get import P2URLPreviewGet, P2URLPreviewGetResponse
-from lark_oapi.adapter.flask import *
-from lark_oapi.api.im.v1 import *
+from lark_oapi.event.callback.model.p2_card_action_trigger import P2CardActionTrigger, P2CardActionTriggerResponse
+from lark_oapi.event.callback.model.p2_url_preview_get import P2URLPreviewGet, P2URLPreviewGetResponse
+
 
 def do_p2_im_message_receive_v1(data: lark.im.v1.P2ImMessageReceiveV1) -> None:
     print(f'[ do_p2_im_message_receive_v1 access ], data: {lark.JSON.marshal(data, indent=4)}')
