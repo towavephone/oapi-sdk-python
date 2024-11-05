@@ -14,11 +14,11 @@ def main():
 
     # 构造请求对象
     request: ListProcessRequest = ListProcessRequest.builder() \
-        .modify_time_to("1547654251506") \
         .statuses([]) \
         .page_token("7278949005675988535") \
         .page_size(100) \
         .modify_time_from("1547654251506") \
+        .modify_time_to("1547654251506") \
         .flow_definition_id("people_6961286846093788680_7081951411982077732") \
         .build()
 
@@ -46,11 +46,11 @@ async def amain():
 
     # 构造请求对象
     request: ListProcessRequest = ListProcessRequest.builder() \
-        .modify_time_to("1547654251506") \
         .statuses([]) \
         .page_token("7278949005675988535") \
         .page_size(100) \
         .modify_time_from("1547654251506") \
+        .modify_time_to("1547654251506") \
         .flow_definition_id("people_6961286846093788680_7081951411982077732") \
         .build()
 

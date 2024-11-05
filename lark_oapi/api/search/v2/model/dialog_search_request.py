@@ -3,6 +3,7 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from .scenario_context import ScenarioContext
+from .passage_param import PassageParam
 
 
 class DialogSearchRequest(object):
@@ -12,6 +13,7 @@ class DialogSearchRequest(object):
         "scenario_context": ScenarioContext,
         "agent_type": int,
         "response_type": int,
+        "passage_param": PassageParam,
     }
 
     def __init__(self, d=None):
@@ -20,6 +22,7 @@ class DialogSearchRequest(object):
         self.scenario_context: Optional[ScenarioContext] = None
         self.agent_type: Optional[int] = None
         self.response_type: Optional[int] = None
+        self.passage_param: Optional[PassageParam] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -49,6 +52,10 @@ class DialogSearchRequestBuilder(object):
 
     def response_type(self, response_type: int) -> "DialogSearchRequestBuilder":
         self._dialog_search_request.response_type = response_type
+        return self
+
+    def passage_param(self, passage_param: PassageParam) -> "DialogSearchRequestBuilder":
+        self._dialog_search_request.passage_param = passage_param
         return self
 
     def build(self) -> "DialogSearchRequest":

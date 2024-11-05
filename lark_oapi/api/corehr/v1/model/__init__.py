@@ -86,6 +86,7 @@ from .job_family import *
 from .job_level import *
 from .leave_balance import *
 from .leave_granting_record import *
+from .leave_process_info import *
 from .leave_request import *
 from .leave_request_detail import *
 from .leave_subtype import *
@@ -459,6 +460,7 @@ from .list_working_hours_type_response_body import *
 from .list_working_hours_type_response import *
 from .patch_working_hours_type_response_body import *
 from .patch_working_hours_type_response import *
+from .p2_corehr_common_data_meta_data_updated_v1 import *
 from .p2_corehr_contract_created_v1 import *
 from .p2_corehr_contract_deleted_v1 import *
 from .p2_corehr_contract_updated_v1 import *

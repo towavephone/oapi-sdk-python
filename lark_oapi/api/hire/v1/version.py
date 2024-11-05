@@ -68,6 +68,7 @@ class V1(object):
         self.talent_object: TalentObject = TalentObject(config)
         self.talent_operation_log: TalentOperationLog = TalentOperationLog(config)
         self.talent_pool: TalentPool = TalentPool(config)
+        self.talent_tag: TalentTag = TalentTag(config)
         self.termination_reason: TerminationReason = TerminationReason(config)
         self.test: Test = Test(config)
         self.todo: Todo = Todo(config)

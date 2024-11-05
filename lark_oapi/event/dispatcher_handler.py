@@ -377,6 +377,14 @@ class EventDispatcherHandlerBuilder(object):
         self._processorMap["p2.contact.user.updated_v3"] = P2ContactUserUpdatedV3Processor(f)
         return self
 
+    def register_p2_corehr_common_data_meta_data_updated_v1(self, f: Callable[
+        [P2CorehrCommonDataMetaDataUpdatedV1], None]) -> "EventDispatcherHandlerBuilder":
+        if "p2.corehr.common_data.meta_data.updated_v1" in self._processorMap:
+            raise EventException("processor already registered, type: p2.corehr.common_data.meta_data.updated_v1")
+        self._processorMap["p2.corehr.common_data.meta_data.updated_v1"] = P2CorehrCommonDataMetaDataUpdatedV1Processor(
+            f)
+        return self
+
     def register_p2_corehr_contract_created_v1(self, f: Callable[
         [P2CorehrContractCreatedV1], None]) -> "EventDispatcherHandlerBuilder":
         if "p2.corehr.contract.created_v1" in self._processorMap:
@@ -948,6 +956,13 @@ class EventDispatcherHandlerBuilder(object):
         if "p2.hire.talent.deleted_v1" in self._processorMap:
             raise EventException("processor already registered, type: p2.hire.talent.deleted_v1")
         self._processorMap["p2.hire.talent.deleted_v1"] = P2HireTalentDeletedV1Processor(f)
+        return self
+
+    def register_p2_hire_talent_tag_subscription_v1(self, f: Callable[
+        [P2HireTalentTagSubscriptionV1], None]) -> "EventDispatcherHandlerBuilder":
+        if "p2.hire.talent.tag_subscription_v1" in self._processorMap:
+            raise EventException("processor already registered, type: p2.hire.talent.tag_subscription_v1")
+        self._processorMap["p2.hire.talent.tag_subscription_v1"] = P2HireTalentTagSubscriptionV1Processor(f)
         return self
 
     def register_p2_im_chat_disbanded_v1(self,

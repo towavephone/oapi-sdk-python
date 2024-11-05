@@ -2,6 +2,7 @@
 
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
+from .object_field_data import ObjectFieldData
 
 
 class WorkExperience(object):
@@ -12,6 +13,7 @@ class WorkExperience(object):
         "job_title": str,
         "description": str,
         "department": str,
+        "custom_fields": List[ObjectFieldData],
     }
 
     def __init__(self, d=None):
@@ -21,6 +23,7 @@ class WorkExperience(object):
         self.job_title: Optional[str] = None
         self.description: Optional[str] = None
         self.department: Optional[str] = None
+        self.custom_fields: Optional[List[ObjectFieldData]] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -54,6 +57,10 @@ class WorkExperienceBuilder(object):
 
     def department(self, department: str) -> "WorkExperienceBuilder":
         self._work_experience.department = department
+        return self
+
+    def custom_fields(self, custom_fields: List[ObjectFieldData]) -> "WorkExperienceBuilder":
+        self._work_experience.custom_fields = custom_fields
         return self
 
     def build(self) -> "WorkExperience":

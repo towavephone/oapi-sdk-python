@@ -24,6 +24,7 @@ class ExternalInstanceTaskNode(object):
         "exclude_statistics": bool,
         "node_id": str,
         "node_name": str,
+        "generate_type": str,
     }
 
     def __init__(self, d=None):
@@ -43,6 +44,7 @@ class ExternalInstanceTaskNode(object):
         self.exclude_statistics: Optional[bool] = None
         self.node_id: Optional[str] = None
         self.node_name: Optional[str] = None
+        self.generate_type: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -116,6 +118,10 @@ class ExternalInstanceTaskNodeBuilder(object):
 
     def node_name(self, node_name: str) -> "ExternalInstanceTaskNodeBuilder":
         self._external_instance_task_node.node_name = node_name
+        return self
+
+    def generate_type(self, generate_type: str) -> "ExternalInstanceTaskNodeBuilder":
+        self._external_instance_task_node.generate_type = generate_type
         return self
 
     def build(self) -> "ExternalInstanceTaskNode":

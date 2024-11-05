@@ -3,6 +3,7 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 
 from lark_oapi.event.processor import IEventProcessor
+from .model.p2_corehr_common_data_meta_data_updated_v1 import P2CorehrCommonDataMetaDataUpdatedV1
 from .model.p2_corehr_contract_created_v1 import P2CorehrContractCreatedV1
 from .model.p2_corehr_contract_deleted_v1 import P2CorehrContractDeletedV1
 from .model.p2_corehr_contract_updated_v1 import P2CorehrContractUpdatedV1
@@ -29,6 +30,17 @@ from .model.p2_corehr_person_created_v1 import P2CorehrPersonCreatedV1
 from .model.p2_corehr_person_deleted_v1 import P2CorehrPersonDeletedV1
 from .model.p2_corehr_person_updated_v1 import P2CorehrPersonUpdatedV1
 from .model.p2_corehr_pre_hire_updated_v1 import P2CorehrPreHireUpdatedV1
+
+
+class P2CorehrCommonDataMetaDataUpdatedV1Processor(IEventProcessor[P2CorehrCommonDataMetaDataUpdatedV1]):
+    def __init__(self, f: Callable[[P2CorehrCommonDataMetaDataUpdatedV1], None]):
+        self.f = f
+
+    def type(self) -> Type[P2CorehrCommonDataMetaDataUpdatedV1]:
+        return P2CorehrCommonDataMetaDataUpdatedV1
+
+    def do(self, data: P2CorehrCommonDataMetaDataUpdatedV1) -> None:
+        self.f(data)
 
 
 class P2CorehrContractCreatedV1Processor(IEventProcessor[P2CorehrContractCreatedV1]):

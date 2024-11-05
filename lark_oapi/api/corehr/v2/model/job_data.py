@@ -43,7 +43,7 @@ class JobData(object):
         "compensation_type": Enum,
         "service_company": str,
         "created_at": str,
-        "weekly_working_hours_v2": str,
+        "weekly_working_hours_v2": float,
         "employee_subtype_id": str,
     }
 
@@ -76,7 +76,7 @@ class JobData(object):
         self.compensation_type: Optional[Enum] = None
         self.service_company: Optional[str] = None
         self.created_at: Optional[str] = None
-        self.weekly_working_hours_v2: Optional[str] = None
+        self.weekly_working_hours_v2: Optional[float] = None
         self.employee_subtype_id: Optional[str] = None
         init(self, d, self._types)
 
@@ -201,7 +201,7 @@ class JobDataBuilder(object):
         self._job_data.created_at = created_at
         return self
 
-    def weekly_working_hours_v2(self, weekly_working_hours_v2: str) -> "JobDataBuilder":
+    def weekly_working_hours_v2(self, weekly_working_hours_v2: float) -> "JobDataBuilder":
         self._job_data.weekly_working_hours_v2 = weekly_working_hours_v2
         return self
 

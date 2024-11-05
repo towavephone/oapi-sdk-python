@@ -11,6 +11,7 @@ from .profile_setting_dependent import ProfileSettingDependent
 from .profile_setting_hukou import ProfileSettingHukou
 from .profile_setting_address import ProfileSettingAddress
 from .profile_setting_custom_group import ProfileSettingCustomGroup
+from .profile_setting_citizenship_status import ProfileSettingCitizenshipStatus
 
 
 class ProfileSettingPersonalInfo(object):
@@ -24,6 +25,7 @@ class ProfileSettingPersonalInfo(object):
         "hukou": ProfileSettingHukou,
         "contact_addresses": List[ProfileSettingAddress],
         "custom_groups": List[ProfileSettingCustomGroup],
+        "citizenship_statuses": List[ProfileSettingCitizenshipStatus],
     }
 
     def __init__(self, d=None):
@@ -36,6 +38,7 @@ class ProfileSettingPersonalInfo(object):
         self.hukou: Optional[ProfileSettingHukou] = None
         self.contact_addresses: Optional[List[ProfileSettingAddress]] = None
         self.custom_groups: Optional[List[ProfileSettingCustomGroup]] = None
+        self.citizenship_statuses: Optional[List[ProfileSettingCitizenshipStatus]] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -83,6 +86,11 @@ class ProfileSettingPersonalInfoBuilder(object):
 
     def custom_groups(self, custom_groups: List[ProfileSettingCustomGroup]) -> "ProfileSettingPersonalInfoBuilder":
         self._profile_setting_personal_info.custom_groups = custom_groups
+        return self
+
+    def citizenship_statuses(self, citizenship_statuses: List[
+        ProfileSettingCitizenshipStatus]) -> "ProfileSettingPersonalInfoBuilder":
+        self._profile_setting_personal_info.citizenship_statuses = citizenship_statuses
         return self
 
     def build(self) -> "ProfileSettingPersonalInfo":

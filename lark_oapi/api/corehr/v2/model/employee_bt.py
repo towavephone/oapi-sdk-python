@@ -81,7 +81,7 @@ class EmployeeBt(object):
         "compensation_type": Enum,
         "work_shift": Enum,
         "talent_pool_id_list": List[str],
-        "custom_org_str": str,
+        "custom_org": str,
     }
 
     def __init__(self, d=None):
@@ -144,7 +144,7 @@ class EmployeeBt(object):
         self.compensation_type: Optional[Enum] = None
         self.work_shift: Optional[Enum] = None
         self.talent_pool_id_list: Optional[List[str]] = None
-        self.custom_org_str: Optional[str] = None
+        self.custom_org: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -393,8 +393,8 @@ class EmployeeBtBuilder(object):
         self._employee_bt.talent_pool_id_list = talent_pool_id_list
         return self
 
-    def custom_org_str(self, custom_org_str: str) -> "EmployeeBtBuilder":
-        self._employee_bt.custom_org_str = custom_org_str
+    def custom_org(self, custom_org: str) -> "EmployeeBtBuilder":
+        self._employee_bt.custom_org = custom_org
         return self
 
     def build(self) -> "EmployeeBt":

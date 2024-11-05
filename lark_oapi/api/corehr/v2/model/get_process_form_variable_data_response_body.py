@@ -8,10 +8,12 @@ from .field_variable_value import FieldVariableValue
 class GetProcessFormVariableDataResponseBody(object):
     _types = {
         "field_variable_values": List[FieldVariableValue],
+        "process_id": str,
     }
 
     def __init__(self, d=None):
         self.field_variable_values: Optional[List[FieldVariableValue]] = None
+        self.process_id: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -26,6 +28,10 @@ class GetProcessFormVariableDataResponseBodyBuilder(object):
     def field_variable_values(self, field_variable_values: List[
         FieldVariableValue]) -> "GetProcessFormVariableDataResponseBodyBuilder":
         self._get_process_form_variable_data_response_body.field_variable_values = field_variable_values
+        return self
+
+    def process_id(self, process_id: str) -> "GetProcessFormVariableDataResponseBodyBuilder":
+        self._get_process_form_variable_data_response_body.process_id = process_id
         return self
 
     def build(self) -> "GetProcessFormVariableDataResponseBody":

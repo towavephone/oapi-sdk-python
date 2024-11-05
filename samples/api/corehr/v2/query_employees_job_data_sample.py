@@ -25,6 +25,8 @@ def main():
                       .effective_date_end("2020-01-01")
                       .department_id("6891251722631890445")
                       .employment_ids([])
+                      .primary_job_data(True)
+                      .assignment_start_reasons([])
                       .build()) \
         .build()
 
@@ -63,6 +65,8 @@ async def amain():
                       .effective_date_end("2020-01-01")
                       .department_id("6891251722631890445")
                       .employment_ids([])
+                      .primary_job_data(True)
+                      .assignment_start_reasons([])
                       .build()) \
         .build()
 

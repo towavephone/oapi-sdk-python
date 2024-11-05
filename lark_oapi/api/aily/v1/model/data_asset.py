@@ -4,6 +4,7 @@ from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from .data_asset_tag import DataAssetTag
 from .data_asset_item import DataAssetItem
+from .data_asset_import_knowledge_setting import DataAssetImportKnowledgeSetting
 
 
 class DataAsset(object):
@@ -15,6 +16,10 @@ class DataAsset(object):
         "connect_status": str,
         "tags": List[DataAssetTag],
         "items": List[DataAssetItem],
+        "connect_failed_reason": str,
+        "connect_type": str,
+        "created_time": int,
+        "updated_time": int,
     }
 
     def __init__(self, d=None):
@@ -25,6 +30,10 @@ class DataAsset(object):
         self.connect_status: Optional[str] = None
         self.tags: Optional[List[DataAssetTag]] = None
         self.items: Optional[List[DataAssetItem]] = None
+        self.connect_failed_reason: Optional[str] = None
+        self.connect_type: Optional[str] = None
+        self.created_time: Optional[int] = None
+        self.updated_time: Optional[int] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -62,6 +71,22 @@ class DataAssetBuilder(object):
 
     def items(self, items: List[DataAssetItem]) -> "DataAssetBuilder":
         self._data_asset.items = items
+        return self
+
+    def connect_failed_reason(self, connect_failed_reason: str) -> "DataAssetBuilder":
+        self._data_asset.connect_failed_reason = connect_failed_reason
+        return self
+
+    def connect_type(self, connect_type: str) -> "DataAssetBuilder":
+        self._data_asset.connect_type = connect_type
+        return self
+
+    def created_time(self, created_time: int) -> "DataAssetBuilder":
+        self._data_asset.created_time = created_time
+        return self
+
+    def updated_time(self, updated_time: int) -> "DataAssetBuilder":
+        self._data_asset.updated_time = updated_time
         return self
 
     def build(self) -> "DataAsset":

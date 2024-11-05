@@ -39,6 +39,7 @@ def main():
                       .trusteeship_user_id_type("user_id")
                       .trusteeship_urls(TrusteeshipUrls.builder().build())
                       .trusteeship_cache_config(TrusteeshipInstanceCacheConfig.builder().build())
+                      .resource_region("")
                       .build()) \
         .build()
 
@@ -91,6 +92,7 @@ async def amain():
                       .trusteeship_user_id_type("user_id")
                       .trusteeship_urls(TrusteeshipUrls.builder().build())
                       .trusteeship_cache_config(TrusteeshipInstanceCacheConfig.builder().build())
+                      .resource_region("")
                       .build()) \
         .build()
 

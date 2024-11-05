@@ -90,7 +90,7 @@ class Employee(object):
         "service_company": str,
         "compensation_type": Enum,
         "work_shift": Enum,
-        "custom_org_str": str,
+        "custom_org": str,
     }
 
     def __init__(self, d=None):
@@ -158,7 +158,7 @@ class Employee(object):
         self.service_company: Optional[str] = None
         self.compensation_type: Optional[Enum] = None
         self.work_shift: Optional[Enum] = None
-        self.custom_org_str: Optional[str] = None
+        self.custom_org: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -426,8 +426,8 @@ class EmployeeBuilder(object):
         self._employee.work_shift = work_shift
         return self
 
-    def custom_org_str(self, custom_org_str: str) -> "EmployeeBuilder":
-        self._employee.custom_org_str = custom_org_str
+    def custom_org(self, custom_org: str) -> "EmployeeBuilder":
+        self._employee.custom_org = custom_org
         return self
 
     def build(self) -> "Employee":

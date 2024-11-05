@@ -62,6 +62,7 @@ from .talent_folder import *
 from .talent_object import *
 from .talent_operation_log import *
 from .talent_pool import *
+from .talent_tag import *
 from .termination_reason import *
 from .test import *
 from .todo import *

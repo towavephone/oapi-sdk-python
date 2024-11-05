@@ -37,6 +37,7 @@ class ExternalInstance(object):
         "trusteeship_user_id_type": str,
         "trusteeship_urls": TrusteeshipUrls,
         "trusteeship_cache_config": TrusteeshipInstanceCacheConfig,
+        "resource_region": str,
     }
 
     def __init__(self, d=None):
@@ -64,6 +65,7 @@ class ExternalInstance(object):
         self.trusteeship_user_id_type: Optional[str] = None
         self.trusteeship_urls: Optional[TrusteeshipUrls] = None
         self.trusteeship_cache_config: Optional[TrusteeshipInstanceCacheConfig] = None
+        self.resource_region: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -170,6 +172,10 @@ class ExternalInstanceBuilder(object):
     def trusteeship_cache_config(self,
                                  trusteeship_cache_config: TrusteeshipInstanceCacheConfig) -> "ExternalInstanceBuilder":
         self._external_instance.trusteeship_cache_config = trusteeship_cache_config
+        return self
+
+    def resource_region(self, resource_region: str) -> "ExternalInstanceBuilder":
+        self._external_instance.resource_region = resource_region
         return self
 
     def build(self) -> "ExternalInstance":

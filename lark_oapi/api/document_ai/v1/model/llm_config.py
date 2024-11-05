@@ -12,9 +12,9 @@ class LlmConfig(object):
         "max_tokens": int,
         "message_type": str,
         "n": int,
-        "temperature": int,
-        "presence_penalty": int,
-        "frequency_penalty": int,
+        "temperature": float,
+        "presence_penalty": float,
+        "frequency_penalty": float,
     }
 
     def __init__(self, d=None):
@@ -23,9 +23,9 @@ class LlmConfig(object):
         self.max_tokens: Optional[int] = None
         self.message_type: Optional[str] = None
         self.n: Optional[int] = None
-        self.temperature: Optional[int] = None
-        self.presence_penalty: Optional[int] = None
-        self.frequency_penalty: Optional[int] = None
+        self.temperature: Optional[float] = None
+        self.presence_penalty: Optional[float] = None
+        self.frequency_penalty: Optional[float] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -57,15 +57,15 @@ class LlmConfigBuilder(object):
         self._llm_config.n = n
         return self
 
-    def temperature(self, temperature: int) -> "LlmConfigBuilder":
+    def temperature(self, temperature: float) -> "LlmConfigBuilder":
         self._llm_config.temperature = temperature
         return self
 
-    def presence_penalty(self, presence_penalty: int) -> "LlmConfigBuilder":
+    def presence_penalty(self, presence_penalty: float) -> "LlmConfigBuilder":
         self._llm_config.presence_penalty = presence_penalty
         return self
 
-    def frequency_penalty(self, frequency_penalty: int) -> "LlmConfigBuilder":
+    def frequency_penalty(self, frequency_penalty: float) -> "LlmConfigBuilder":
         self._llm_config.frequency_penalty = frequency_penalty
         return self
 

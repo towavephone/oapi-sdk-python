@@ -30,6 +30,7 @@ from .department_id import *
 from .exteranl_instance_check import *
 from .exteranl_instance_check_response import *
 from .external_approval import *
+from .external_approval_item import *
 from .external_instance import *
 from .external_instance_form import *
 from .external_instance_link import *

@@ -31,6 +31,7 @@ class ProfileSettingPersonalBasicInfo(object):
         "first_entry_time": str,
         "leave_time": str,
         "custom_fields": List[ProfileSettingCustomField],
+        "additional_nationalities": List[str],
     }
 
     def __init__(self, d=None):
@@ -55,6 +56,7 @@ class ProfileSettingPersonalBasicInfo(object):
         self.first_entry_time: Optional[str] = None
         self.leave_time: Optional[str] = None
         self.custom_fields: Optional[List[ProfileSettingCustomField]] = None
+        self.additional_nationalities: Optional[List[str]] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -148,6 +150,10 @@ class ProfileSettingPersonalBasicInfoBuilder(object):
 
     def custom_fields(self, custom_fields: List[ProfileSettingCustomField]) -> "ProfileSettingPersonalBasicInfoBuilder":
         self._profile_setting_personal_basic_info.custom_fields = custom_fields
+        return self
+
+    def additional_nationalities(self, additional_nationalities: List[str]) -> "ProfileSettingPersonalBasicInfoBuilder":
+        self._profile_setting_personal_basic_info.additional_nationalities = additional_nationalities
         return self
 
     def build(self) -> "ProfileSettingPersonalBasicInfo":

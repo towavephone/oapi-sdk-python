@@ -14,6 +14,7 @@ class LeaveBalancesLeaveRequest(BaseRequest):
         self.employment_id_list: Optional[List[str]] = None
         self.user_id_type: Optional[str] = None
         self.time_zone: Optional[str] = None
+        self.include_offboard: Optional[bool] = None
 
     @staticmethod
     def builder() -> "LeaveBalancesLeaveRequestBuilder":
@@ -57,6 +58,11 @@ class LeaveBalancesLeaveRequestBuilder(object):
     def time_zone(self, time_zone: str) -> "LeaveBalancesLeaveRequestBuilder":
         self._leave_balances_leave_request.time_zone = time_zone
         self._leave_balances_leave_request.add_query("time_zone", time_zone)
+        return self
+
+    def include_offboard(self, include_offboard: bool) -> "LeaveBalancesLeaveRequestBuilder":
+        self._leave_balances_leave_request.include_offboard = include_offboard
+        self._leave_balances_leave_request.add_query("include_offboard", include_offboard)
         return self
 
     def build(self) -> LeaveBalancesLeaveRequest:

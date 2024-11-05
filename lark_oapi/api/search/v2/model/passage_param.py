@@ -6,6 +6,8 @@ from .doc_passage_param import DocPassageParam
 from .wiki_passage_param import WikiPassageParam
 from .web_passage_param import WebPassageParam
 from .helpdesk_passage_param import HelpdeskPassageParam
+from .lingo_passage_param import LingoPassageParam
+from .message_passage_param import MessagePassageParam
 
 
 class PassageParam(object):
@@ -14,6 +16,8 @@ class PassageParam(object):
         "wiki_param": WikiPassageParam,
         "web_param": WebPassageParam,
         "helpdesk_param": HelpdeskPassageParam,
+        "lingo_param": LingoPassageParam,
+        "message_param": MessagePassageParam,
     }
 
     def __init__(self, d=None):
@@ -21,6 +25,8 @@ class PassageParam(object):
         self.wiki_param: Optional[WikiPassageParam] = None
         self.web_param: Optional[WebPassageParam] = None
         self.helpdesk_param: Optional[HelpdeskPassageParam] = None
+        self.lingo_param: Optional[LingoPassageParam] = None
+        self.message_param: Optional[MessagePassageParam] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -46,6 +52,14 @@ class PassageParamBuilder(object):
 
     def helpdesk_param(self, helpdesk_param: HelpdeskPassageParam) -> "PassageParamBuilder":
         self._passage_param.helpdesk_param = helpdesk_param
+        return self
+
+    def lingo_param(self, lingo_param: LingoPassageParam) -> "PassageParamBuilder":
+        self._passage_param.lingo_param = lingo_param
+        return self
+
+    def message_param(self, message_param: MessagePassageParam) -> "PassageParamBuilder":
+        self._passage_param.message_param = message_param
         return self
 
     def build(self) -> "PassageParam":

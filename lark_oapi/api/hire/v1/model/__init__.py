@@ -639,6 +639,8 @@ from .get_talent_request import *
 from .list_talent_request import *
 from .onboard_status_talent_request_body import *
 from .onboard_status_talent_request import *
+from .tag_talent_request_body import *
+from .tag_talent_request import *
 from .create_talent_external_info_request_body import *
 from .create_talent_external_info_request import *
 from .update_talent_external_info_request_body import *
@@ -650,6 +652,7 @@ from .search_talent_operation_log_request import *
 from .move_talent_talent_pool_request_body import *
 from .move_talent_talent_pool_request import *
 from .search_talent_pool_request import *
+from .list_talent_tag_request import *
 from .list_termination_reason_request import *
 from .search_test_request_body import *
 from .search_test_request import *
@@ -894,6 +897,7 @@ from .get_talent_response import *
 from .list_talent_response_body import *
 from .list_talent_response import *
 from .onboard_status_talent_response import *
+from .tag_talent_response import *
 from .create_talent_external_info_response_body import *
 from .create_talent_external_info_response import *
 from .update_talent_external_info_response_body import *
@@ -908,6 +912,8 @@ from .move_talent_talent_pool_response_body import *
 from .move_talent_talent_pool_response import *
 from .search_talent_pool_response_body import *
 from .search_talent_pool_response import *
+from .list_talent_tag_response_body import *
+from .list_talent_tag_response import *
 from .list_termination_reason_response_body import *
 from .list_termination_reason_response import *
 from .search_test_response_body import *
@@ -957,3 +963,4 @@ from .p2_hire_ehr_import_task_for_internship_offer_imported_v1 import *
 from .p2_hire_offer_status_changed_v1 import *
 from .p2_hire_referral_account_assets_update_v1 import *
 from .p2_hire_talent_deleted_v1 import *
+from .p2_hire_talent_tag_subscription_v1 import *

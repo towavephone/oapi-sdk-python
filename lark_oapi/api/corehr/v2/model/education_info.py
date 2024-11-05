@@ -2,6 +2,7 @@
 
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
+from .object_field_data import ObjectFieldData
 
 
 class EducationInfo(object):
@@ -11,6 +12,7 @@ class EducationInfo(object):
         "start_time": str,
         "end_time": str,
         "field_of_study": str,
+        "custom_fields": List[ObjectFieldData],
     }
 
     def __init__(self, d=None):
@@ -19,6 +21,7 @@ class EducationInfo(object):
         self.start_time: Optional[str] = None
         self.end_time: Optional[str] = None
         self.field_of_study: Optional[str] = None
+        self.custom_fields: Optional[List[ObjectFieldData]] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -48,6 +51,10 @@ class EducationInfoBuilder(object):
 
     def field_of_study(self, field_of_study: str) -> "EducationInfoBuilder":
         self._education_info.field_of_study = field_of_study
+        return self
+
+    def custom_fields(self, custom_fields: List[ObjectFieldData]) -> "EducationInfoBuilder":
+        self._education_info.custom_fields = custom_fields
         return self
 
     def build(self) -> "EducationInfo":

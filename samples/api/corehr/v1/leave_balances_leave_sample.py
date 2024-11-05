@@ -20,6 +20,7 @@ def main():
         .employment_id_list([]) \
         .user_id_type("people_corehr_id") \
         .time_zone("Asia/Shanghai") \
+        .include_offboard(True) \
         .build()
 
     # 发起请求
@@ -52,6 +53,7 @@ async def amain():
         .employment_id_list([]) \
         .user_id_type("people_corehr_id") \
         .time_zone("Asia/Shanghai") \
+        .include_offboard(True) \
         .build()
 
     # 发起请求

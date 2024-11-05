@@ -25,6 +25,10 @@ from .plan_detail import *
 from .plan_indicator import *
 from .plan_item import *
 from .plan_scope import *
+from .recurring_payment import *
+from .recurring_payment_for_create import *
+from .recurring_payment_for_update import *
+from .recurring_payment_operate_result import *
 from .social_archive import *
 from .social_archive_adjust_record import *
 from .social_archive_detail import *

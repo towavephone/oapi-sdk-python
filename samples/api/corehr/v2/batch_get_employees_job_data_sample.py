@@ -22,6 +22,8 @@ def main():
                       .effective_date_start("2020-01-01")
                       .effective_date_end("2020-01-01")
                       .data_date("2020-01-01")
+                      .primary_job_data(True)
+                      .assignment_start_reasons([])
                       .build()) \
         .build()
 
@@ -57,6 +59,8 @@ async def amain():
                       .effective_date_start("2020-01-01")
                       .effective_date_end("2020-01-01")
                       .data_date("2020-01-01")
+                      .primary_job_data(True)
+                      .assignment_start_reasons([])
                       .build()) \
         .build()
 

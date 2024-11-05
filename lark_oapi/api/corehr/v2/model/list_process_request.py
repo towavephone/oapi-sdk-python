@@ -8,11 +8,11 @@ from lark_oapi.core.enum import HttpMethod, AccessTokenType
 class ListProcessRequest(BaseRequest):
     def __init__(self) -> None:
         super().__init__()
-        self.modify_time_to: Optional[str] = None
         self.statuses: Optional[List[int]] = None
         self.page_token: Optional[str] = None
         self.page_size: Optional[int] = None
         self.modify_time_from: Optional[str] = None
+        self.modify_time_to: Optional[str] = None
         self.flow_definition_id: Optional[str] = None
 
     @staticmethod
@@ -28,11 +28,6 @@ class ListProcessRequestBuilder(object):
         list_process_request.uri = "/open-apis/corehr/v2/processes"
         list_process_request.token_types = {AccessTokenType.TENANT}
         self._list_process_request: ListProcessRequest = list_process_request
-
-    def modify_time_to(self, modify_time_to: str) -> "ListProcessRequestBuilder":
-        self._list_process_request.modify_time_to = modify_time_to
-        self._list_process_request.add_query("modify_time_to", modify_time_to)
-        return self
 
     def statuses(self, statuses: List[int]) -> "ListProcessRequestBuilder":
         self._list_process_request.statuses = statuses
@@ -52,6 +47,11 @@ class ListProcessRequestBuilder(object):
     def modify_time_from(self, modify_time_from: str) -> "ListProcessRequestBuilder":
         self._list_process_request.modify_time_from = modify_time_from
         self._list_process_request.add_query("modify_time_from", modify_time_from)
+        return self
+
+    def modify_time_to(self, modify_time_to: str) -> "ListProcessRequestBuilder":
+        self._list_process_request.modify_time_to = modify_time_to
+        self._list_process_request.add_query("modify_time_to", modify_time_to)
         return self
 
     def flow_definition_id(self, flow_definition_id: str) -> "ListProcessRequestBuilder":

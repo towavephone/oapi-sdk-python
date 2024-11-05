@@ -23,6 +23,8 @@ from ..model.list_talent_request import ListTalentRequest
 from ..model.list_talent_response import ListTalentResponse
 from ..model.onboard_status_talent_request import OnboardStatusTalentRequest
 from ..model.onboard_status_talent_response import OnboardStatusTalentResponse
+from ..model.tag_talent_request import TagTalentRequest
+from ..model.tag_talent_response import TagTalentResponse
 
 
 class Talent(object):
@@ -287,6 +289,42 @@ class Talent(object):
 
         # 反序列化
         response: OnboardStatusTalentResponse = JSON.unmarshal(str(resp.content, UTF_8), OnboardStatusTalentResponse)
+        response.raw = resp
+
+        return response
+
+    def tag(self, request: TagTalentRequest, option: Optional[RequestOption] = None) -> TagTalentResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 添加 content-type
+        if request.body is not None:
+            option.headers[CONTENT_TYPE] = f"{APPLICATION_JSON}; charset=utf-8"
+
+        # 发起请求
+        resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: TagTalentResponse = JSON.unmarshal(str(resp.content, UTF_8), TagTalentResponse)
+        response.raw = resp
+
+        return response
+
+    async def atag(self, request: TagTalentRequest, option: Optional[RequestOption] = None) -> TagTalentResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: TagTalentResponse = JSON.unmarshal(str(resp.content, UTF_8), TagTalentResponse)
         response.raw = resp
 
         return response

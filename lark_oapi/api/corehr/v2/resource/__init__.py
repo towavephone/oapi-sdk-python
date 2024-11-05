@@ -1,3 +1,4 @@
+from .approver import *
 from .basic_info_bank import *
 from .basic_info_bank_branch import *
 from .basic_info_city import *
@@ -23,6 +24,7 @@ from .job_family import *
 from .job_grade import *
 from .job_level import *
 from .location import *
+from .location_address import *
 from .offboarding import *
 from .person import *
 from .pre_hire import *
@@ -34,4 +36,5 @@ from .process_cc import *
 from .process_form_variable_data import *
 from .process_node import *
 from .process_status import *
+from .workforce_plan import *
 from .workforce_plan_detail import *

@@ -28,7 +28,6 @@ class EmployeesInternationalAssignmentReq(object):
         "international_assignment_reason": str,
         "description": str,
         "international_assignment_expected_end_date": str,
-        "international_assignment_status": str,
         "international_assignment_type": str,
         "effective_time": str,
         "expiration_time": str,
@@ -56,7 +55,6 @@ class EmployeesInternationalAssignmentReq(object):
         self.international_assignment_reason: Optional[str] = None
         self.description: Optional[str] = None
         self.international_assignment_expected_end_date: Optional[str] = None
-        self.international_assignment_status: Optional[str] = None
         self.international_assignment_type: Optional[str] = None
         self.effective_time: Optional[str] = None
         self.expiration_time: Optional[str] = None
@@ -155,11 +153,6 @@ class EmployeesInternationalAssignmentReqBuilder(object):
     def international_assignment_expected_end_date(self,
                                                    international_assignment_expected_end_date: str) -> "EmployeesInternationalAssignmentReqBuilder":
         self._employees_international_assignment_req.international_assignment_expected_end_date = international_assignment_expected_end_date
-        return self
-
-    def international_assignment_status(self,
-                                        international_assignment_status: str) -> "EmployeesInternationalAssignmentReqBuilder":
-        self._employees_international_assignment_req.international_assignment_status = international_assignment_status
         return self
 
     def international_assignment_type(self,

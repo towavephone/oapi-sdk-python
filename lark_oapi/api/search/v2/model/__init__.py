@@ -23,6 +23,7 @@ from .item_record import *
 from .lingo_passage_param import *
 from .llm_model_config import *
 from .memory_message import *
+from .message_passage_param import *
 from .model_config import *
 from .model_param import *
 from .nls_model_config import *

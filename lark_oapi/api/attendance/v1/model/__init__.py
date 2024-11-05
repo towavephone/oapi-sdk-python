@@ -1,3 +1,4 @@
+from .approval_daily_detail import *
 from .approval_info import *
 from .archive_field import *
 from .archive_field_data import *
@@ -35,6 +36,7 @@ from .machine import *
 from .member_status_change import *
 from .open_apply_time_range import *
 from .overtime_apply_detail import *
+from .overtime_approval import *
 from .overtime_clock_cfg import *
 from .overtime_detail import *
 from .overtime_rule import *

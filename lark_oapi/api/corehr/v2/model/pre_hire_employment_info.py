@@ -9,6 +9,7 @@ from .custom_field_data import CustomFieldData
 from .pre_hire_pay_group_info import PreHirePayGroupInfo
 from .pre_hire_abnormal_reason import PreHireAbnormalReason
 from .enum import Enum
+from .enum import Enum
 
 
 class PreHireEmploymentInfo(object):
@@ -21,6 +22,7 @@ class PreHireEmploymentInfo(object):
         "worker_id": str,
         "compensation_type": Enum,
         "direct_leader_id": str,
+        "dotted_line_manager_id": str,
         "job_id": str,
         "job_family_id": str,
         "job_level_id": str,
@@ -55,6 +57,15 @@ class PreHireEmploymentInfo(object):
         "created_by": str,
         "updated_by": str,
         "seniority_date": str,
+        "background_check_order_id": str,
+        "background_check_order_name": str,
+        "background_check_order_package_name": str,
+        "background_check_order_result": str,
+        "background_check_order_supplier_name": str,
+        "background_check_order_account_name": str,
+        "background_check_order_start_time": str,
+        "background_check_order_complete_time": str,
+        "background_check_order_status": Enum,
     }
 
     def __init__(self, d=None):
@@ -66,6 +77,7 @@ class PreHireEmploymentInfo(object):
         self.worker_id: Optional[str] = None
         self.compensation_type: Optional[Enum] = None
         self.direct_leader_id: Optional[str] = None
+        self.dotted_line_manager_id: Optional[str] = None
         self.job_id: Optional[str] = None
         self.job_family_id: Optional[str] = None
         self.job_level_id: Optional[str] = None
@@ -100,6 +112,15 @@ class PreHireEmploymentInfo(object):
         self.created_by: Optional[str] = None
         self.updated_by: Optional[str] = None
         self.seniority_date: Optional[str] = None
+        self.background_check_order_id: Optional[str] = None
+        self.background_check_order_name: Optional[str] = None
+        self.background_check_order_package_name: Optional[str] = None
+        self.background_check_order_result: Optional[str] = None
+        self.background_check_order_supplier_name: Optional[str] = None
+        self.background_check_order_account_name: Optional[str] = None
+        self.background_check_order_start_time: Optional[str] = None
+        self.background_check_order_complete_time: Optional[str] = None
+        self.background_check_order_status: Optional[Enum] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -141,6 +162,10 @@ class PreHireEmploymentInfoBuilder(object):
 
     def direct_leader_id(self, direct_leader_id: str) -> "PreHireEmploymentInfoBuilder":
         self._pre_hire_employment_info.direct_leader_id = direct_leader_id
+        return self
+
+    def dotted_line_manager_id(self, dotted_line_manager_id: str) -> "PreHireEmploymentInfoBuilder":
+        self._pre_hire_employment_info.dotted_line_manager_id = dotted_line_manager_id
         return self
 
     def job_id(self, job_id: str) -> "PreHireEmploymentInfoBuilder":
@@ -278,6 +303,47 @@ class PreHireEmploymentInfoBuilder(object):
 
     def seniority_date(self, seniority_date: str) -> "PreHireEmploymentInfoBuilder":
         self._pre_hire_employment_info.seniority_date = seniority_date
+        return self
+
+    def background_check_order_id(self, background_check_order_id: str) -> "PreHireEmploymentInfoBuilder":
+        self._pre_hire_employment_info.background_check_order_id = background_check_order_id
+        return self
+
+    def background_check_order_name(self, background_check_order_name: str) -> "PreHireEmploymentInfoBuilder":
+        self._pre_hire_employment_info.background_check_order_name = background_check_order_name
+        return self
+
+    def background_check_order_package_name(self,
+                                            background_check_order_package_name: str) -> "PreHireEmploymentInfoBuilder":
+        self._pre_hire_employment_info.background_check_order_package_name = background_check_order_package_name
+        return self
+
+    def background_check_order_result(self, background_check_order_result: str) -> "PreHireEmploymentInfoBuilder":
+        self._pre_hire_employment_info.background_check_order_result = background_check_order_result
+        return self
+
+    def background_check_order_supplier_name(self,
+                                             background_check_order_supplier_name: str) -> "PreHireEmploymentInfoBuilder":
+        self._pre_hire_employment_info.background_check_order_supplier_name = background_check_order_supplier_name
+        return self
+
+    def background_check_order_account_name(self,
+                                            background_check_order_account_name: str) -> "PreHireEmploymentInfoBuilder":
+        self._pre_hire_employment_info.background_check_order_account_name = background_check_order_account_name
+        return self
+
+    def background_check_order_start_time(self,
+                                          background_check_order_start_time: str) -> "PreHireEmploymentInfoBuilder":
+        self._pre_hire_employment_info.background_check_order_start_time = background_check_order_start_time
+        return self
+
+    def background_check_order_complete_time(self,
+                                             background_check_order_complete_time: str) -> "PreHireEmploymentInfoBuilder":
+        self._pre_hire_employment_info.background_check_order_complete_time = background_check_order_complete_time
+        return self
+
+    def background_check_order_status(self, background_check_order_status: Enum) -> "PreHireEmploymentInfoBuilder":
+        self._pre_hire_employment_info.background_check_order_status = background_check_order_status
         return self
 
     def build(self) -> "PreHireEmploymentInfo":

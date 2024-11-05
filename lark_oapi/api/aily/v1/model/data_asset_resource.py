@@ -7,12 +7,12 @@ from lark_oapi.core.construct import init
 class DataAssetResource(object):
     _types = {
         "resource_id": str,
-        "resouce_type": str,
+        "resource_type": str,
     }
 
     def __init__(self, d=None):
         self.resource_id: Optional[str] = None
-        self.resouce_type: Optional[str] = None
+        self.resource_type: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -28,8 +28,8 @@ class DataAssetResourceBuilder(object):
         self._data_asset_resource.resource_id = resource_id
         return self
 
-    def resouce_type(self, resouce_type: str) -> "DataAssetResourceBuilder":
-        self._data_asset_resource.resouce_type = resouce_type
+    def resource_type(self, resource_type: str) -> "DataAssetResourceBuilder":
+        self._data_asset_resource.resource_type = resource_type
         return self
 
     def build(self) -> "DataAssetResource":

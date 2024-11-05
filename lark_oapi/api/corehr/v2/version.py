@@ -3,6 +3,7 @@ from .resource import *
 
 class V2(object):
     def __init__(self, config: Config) -> None:
+        self.approver: Approver = Approver(config)
         self.basic_info_bank: BasicInfoBank = BasicInfoBank(config)
         self.basic_info_bank_branch: BasicInfoBankBranch = BasicInfoBankBranch(config)
         self.basic_info_city: BasicInfoCity = BasicInfoCity(config)
@@ -29,6 +30,7 @@ class V2(object):
         self.job_grade: JobGrade = JobGrade(config)
         self.job_level: JobLevel = JobLevel(config)
         self.location: Location = Location(config)
+        self.location_address: LocationAddress = LocationAddress(config)
         self.offboarding: Offboarding = Offboarding(config)
         self.person: Person = Person(config)
         self.pre_hire: PreHire = PreHire(config)
@@ -40,4 +42,5 @@ class V2(object):
         self.process_form_variable_data: ProcessFormVariableData = ProcessFormVariableData(config)
         self.process_node: ProcessNode = ProcessNode(config)
         self.process_status: ProcessStatus = ProcessStatus(config)
+        self.workforce_plan: WorkforcePlan = WorkforcePlan(config)
         self.workforce_plan_detail: WorkforcePlanDetail = WorkforcePlanDetail(config)
