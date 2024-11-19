@@ -242,12 +242,12 @@ lark.logger.info(str(response.raw.content, lark.UTF_8))
 ```
 更多示例可参考：[原生调用](samples/api/raw.py)
 
-## 处理消息事件回调
-了解消息订阅相关的知识，可以 [点击这里](https://open.feishu.cn/document/ukTMukTMukTM/uUTNz4SN1MjL1UzM)
+## 处消事件订阅
+了解事件订阅相关的知识，可以 [点击这里](https://open.feishu.cn/document/ukTMukTMukTM/uUTNz4SN1MjL1UzM)
 
 获取飞书开放平台开放的所有事件列表，可以 [点击这里](https://open.feishu.cn/document/ukTMukTMukTM/uYDNxYjL2QTM24iN0EjN/event-list)
 ### 基本用法
-开发者订阅消息事件后，可以使用下面代码，对飞书开放平台推送的消息事件进行处理。
+开发者订阅事件后，可以使用下面代码，对飞书开放平台推送的消息事件进行处理。
 
 如下示例中使用 flask 启动 httpServer，如使用其他 web 框架，只需处理 http 出入参转换即可。
 
@@ -302,6 +302,10 @@ if __name__ == "__main__":
 
 ## 处理卡片行为回调
 关于卡片行为相关的知识，可点击[这里查看](https://open.feishu.cn/document/ukTMukTMukTM/uczM3QjL3MzN04yNzcDN)
+
+以下示例为处理消息卡片回传交互（旧）（card.action.trigger_v1）的写法。 
+
+新版本卡片回传交互 (card.action.trigger) 请参考事件订阅 [event samples](./samples/event/flask_sample.py) 中 register_p2_card_action_trigger
 
 ### 基本用法
 开发者可以使用下面代码处理卡片回调，示例中使用 flask 启动 httpServer，如使用其他 web 框架，只需处理 http 出入参转换即可。

@@ -9,13 +9,13 @@ class ListApproverResponseBody(object):
     _types = {
         "page_token": str,
         "has_more": bool,
-        "approvers": List[ApproverInfo],
+        "approver_list": List[ApproverInfo],
     }
 
     def __init__(self, d=None):
         self.page_token: Optional[str] = None
         self.has_more: Optional[bool] = None
-        self.approvers: Optional[List[ApproverInfo]] = None
+        self.approver_list: Optional[List[ApproverInfo]] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -35,8 +35,8 @@ class ListApproverResponseBodyBuilder(object):
         self._list_approver_response_body.has_more = has_more
         return self
 
-    def approvers(self, approvers: List[ApproverInfo]) -> "ListApproverResponseBodyBuilder":
-        self._list_approver_response_body.approvers = approvers
+    def approver_list(self, approver_list: List[ApproverInfo]) -> "ListApproverResponseBodyBuilder":
+        self._list_approver_response_body.approver_list = approver_list
         return self
 
     def build(self) -> "ListApproverResponseBody":

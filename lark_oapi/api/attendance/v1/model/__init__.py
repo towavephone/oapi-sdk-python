@@ -62,6 +62,7 @@ from .task_result import *
 from .user_allowed_remedy import *
 from .user_approval import *
 from .user_arrange_shift_group import *
+from .user_base import *
 from .user_daily_shift import *
 from .user_flow import *
 from .user_id import *

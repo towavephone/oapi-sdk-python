@@ -9,13 +9,13 @@ from .workforce_plan_eai_detail import WorkforcePlanEaiDetail
 class WorkforcePlanDetailRow(object):
     _types = {
         "dimensions": List[DimensionEntity],
-        "eai_detail": WorkforcePlanEaiDetail,
+        "eai_details": List[WorkforcePlanEaiDetail],
         "plan_value": str,
     }
 
     def __init__(self, d=None):
         self.dimensions: Optional[List[DimensionEntity]] = None
-        self.eai_detail: Optional[WorkforcePlanEaiDetail] = None
+        self.eai_details: Optional[List[WorkforcePlanEaiDetail]] = None
         self.plan_value: Optional[str] = None
         init(self, d, self._types)
 
@@ -32,8 +32,8 @@ class WorkforcePlanDetailRowBuilder(object):
         self._workforce_plan_detail_row.dimensions = dimensions
         return self
 
-    def eai_detail(self, eai_detail: WorkforcePlanEaiDetail) -> "WorkforcePlanDetailRowBuilder":
-        self._workforce_plan_detail_row.eai_detail = eai_detail
+    def eai_details(self, eai_details: List[WorkforcePlanEaiDetail]) -> "WorkforcePlanDetailRowBuilder":
+        self._workforce_plan_detail_row.eai_details = eai_details
         return self
 
     def plan_value(self, plan_value: str) -> "WorkforcePlanDetailRowBuilder":

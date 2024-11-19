@@ -2,7 +2,7 @@
 
 import hashlib
 import json
-
+from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.api.acs.v1.processor import *
 from lark_oapi.api.application.v6.processor import *
 from lark_oapi.api.approval.v4.processor import *

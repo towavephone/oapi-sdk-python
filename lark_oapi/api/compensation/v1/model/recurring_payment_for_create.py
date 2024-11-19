@@ -14,6 +14,7 @@ class RecurringPaymentForCreate(object):
         "end_date": str,
         "currency_id": str,
         "issuance_type": str,
+        "issuance_period": str,
         "remark": str,
     }
 
@@ -26,6 +27,7 @@ class RecurringPaymentForCreate(object):
         self.end_date: Optional[str] = None
         self.currency_id: Optional[str] = None
         self.issuance_type: Optional[str] = None
+        self.issuance_period: Optional[str] = None
         self.remark: Optional[str] = None
         init(self, d, self._types)
 
@@ -68,6 +70,10 @@ class RecurringPaymentForCreateBuilder(object):
 
     def issuance_type(self, issuance_type: str) -> "RecurringPaymentForCreateBuilder":
         self._recurring_payment_for_create.issuance_type = issuance_type
+        return self
+
+    def issuance_period(self, issuance_period: str) -> "RecurringPaymentForCreateBuilder":
+        self._recurring_payment_for_create.issuance_period = issuance_period
         return self
 
     def remark(self, remark: str) -> "RecurringPaymentForCreateBuilder":

@@ -22,6 +22,7 @@ class V2(object):
         self.cost_center_version: CostCenterVersion = CostCenterVersion(config)
         self.department: Department = Department(config)
         self.employee: Employee = Employee(config)
+        self.employees_additional_job: EmployeesAdditionalJob = EmployeesAdditionalJob(config)
         self.employees_bp: EmployeesBp = EmployeesBp(config)
         self.employees_job_data: EmployeesJobData = EmployeesJobData(config)
         self.job: Job = Job(config)

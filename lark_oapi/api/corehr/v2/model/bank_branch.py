@@ -3,11 +3,13 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from .i18n import I18n
+from .i18n import I18n
 
 
 class BankBranch(object):
     _types = {
         "bank_branch_id": str,
+        "name": List[I18n],
         "bank_branch_name": List[I18n],
         "bank_id": str,
         "code": str,
@@ -22,6 +24,7 @@ class BankBranch(object):
 
     def __init__(self, d=None):
         self.bank_branch_id: Optional[str] = None
+        self.name: Optional[List[I18n]] = None
         self.bank_branch_name: Optional[List[I18n]] = None
         self.bank_id: Optional[str] = None
         self.code: Optional[str] = None
@@ -45,6 +48,10 @@ class BankBranchBuilder(object):
 
     def bank_branch_id(self, bank_branch_id: str) -> "BankBranchBuilder":
         self._bank_branch.bank_branch_id = bank_branch_id
+        return self
+
+    def name(self, name: List[I18n]) -> "BankBranchBuilder":
+        self._bank_branch.name = name
         return self
 
     def bank_branch_name(self, bank_branch_name: List[I18n]) -> "BankBranchBuilder":

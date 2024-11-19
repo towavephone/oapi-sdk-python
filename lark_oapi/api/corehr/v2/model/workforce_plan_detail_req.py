@@ -7,12 +7,12 @@ from .workforce_plan_detail_row import WorkforcePlanDetailRow
 
 class WorkforcePlanDetailReq(object):
     _types = {
-        "workfore_plan_id": str,
+        "workforce_plan_id": str,
         "items": List[WorkforcePlanDetailRow],
     }
 
     def __init__(self, d=None):
-        self.workfore_plan_id: Optional[str] = None
+        self.workforce_plan_id: Optional[str] = None
         self.items: Optional[List[WorkforcePlanDetailRow]] = None
         init(self, d, self._types)
 
@@ -25,8 +25,8 @@ class WorkforcePlanDetailReqBuilder(object):
     def __init__(self) -> None:
         self._workforce_plan_detail_req = WorkforcePlanDetailReq()
 
-    def workfore_plan_id(self, workfore_plan_id: str) -> "WorkforcePlanDetailReqBuilder":
-        self._workforce_plan_detail_req.workfore_plan_id = workfore_plan_id
+    def workforce_plan_id(self, workforce_plan_id: str) -> "WorkforcePlanDetailReqBuilder":
+        self._workforce_plan_detail_req.workforce_plan_id = workforce_plan_id
         return self
 
     def items(self, items: List[WorkforcePlanDetailRow]) -> "WorkforcePlanDetailReqBuilder":

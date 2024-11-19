@@ -18,6 +18,7 @@ def main():
         .table_id("tblsRc9GRRXKqhvW") \
         .record_id("recqwIwhc6") \
         .user_id_type("user_id") \
+        .ignore_consistency_check(True) \
         .request_body(AppTableRecord.builder()
                       .fields({})
                       .build()) \
@@ -51,6 +52,7 @@ async def amain():
         .table_id("tblsRc9GRRXKqhvW") \
         .record_id("recqwIwhc6") \
         .user_id_type("user_id") \
+        .ignore_consistency_check(True) \
         .request_body(AppTableRecord.builder()
                       .fields({})
                       .build()) \

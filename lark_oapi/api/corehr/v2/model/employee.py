@@ -81,6 +81,7 @@ class Employee(object):
         "contract_end_date": str,
         "contract_expected_end_date": str,
         "pay_group_id": str,
+        "assignment_pay_group_id": str,
         "international_assignment": bool,
         "work_calendar_id": str,
         "department": BasicDepartment,
@@ -149,6 +150,7 @@ class Employee(object):
         self.contract_end_date: Optional[str] = None
         self.contract_expected_end_date: Optional[str] = None
         self.pay_group_id: Optional[str] = None
+        self.assignment_pay_group_id: Optional[str] = None
         self.international_assignment: Optional[bool] = None
         self.work_calendar_id: Optional[str] = None
         self.department: Optional[BasicDepartment] = None
@@ -388,6 +390,10 @@ class EmployeeBuilder(object):
 
     def pay_group_id(self, pay_group_id: str) -> "EmployeeBuilder":
         self._employee.pay_group_id = pay_group_id
+        return self
+
+    def assignment_pay_group_id(self, assignment_pay_group_id: str) -> "EmployeeBuilder":
+        self._employee.assignment_pay_group_id = assignment_pay_group_id
         return self
 
     def international_assignment(self, international_assignment: bool) -> "EmployeeBuilder":

@@ -16,6 +16,7 @@ from .cost_center import *
 from .cost_center_version import *
 from .department import *
 from .employee import *
+from .employees_additional_job import *
 from .employees_bp import *
 from .employees_job_data import *
 from .job import *

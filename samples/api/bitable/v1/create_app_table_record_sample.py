@@ -18,6 +18,7 @@ def main():
         .table_id("tblUa9vcYjWQYJCj") \
         .user_id_type("user_id") \
         .client_token("fe599b60-450f-46ff-b2ef-9f6675625b97") \
+        .ignore_consistency_check(True) \
         .request_body(AppTableRecord.builder()
                       .fields({})
                       .build()) \
@@ -51,6 +52,7 @@ async def amain():
         .table_id("tblUa9vcYjWQYJCj") \
         .user_id_type("user_id") \
         .client_token("fe599b60-450f-46ff-b2ef-9f6675625b97") \
+        .ignore_consistency_check(True) \
         .request_body(AppTableRecord.builder()
                       .fields({})
                       .build()) \

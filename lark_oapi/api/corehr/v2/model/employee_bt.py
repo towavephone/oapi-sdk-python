@@ -18,6 +18,7 @@ from .basic_employee import BasicEmployee
 from .international_assignment import InternationalAssignment
 from .enum import Enum
 from .enum import Enum
+from .seniority_adjust_information import SeniorityAdjustInformation
 
 
 class EmployeeBt(object):
@@ -70,6 +71,7 @@ class EmployeeBt(object):
         "contract_end_date": str,
         "contract_expected_end_date": str,
         "pay_group_id": str,
+        "assignment_pay_group_id": str,
         "international_assignment": bool,
         "work_calendar_id": str,
         "department": BasicDepartment,
@@ -82,6 +84,7 @@ class EmployeeBt(object):
         "work_shift": Enum,
         "talent_pool_id_list": List[str],
         "custom_org": str,
+        "seniority_adjust_information_list": List[SeniorityAdjustInformation],
     }
 
     def __init__(self, d=None):
@@ -133,6 +136,7 @@ class EmployeeBt(object):
         self.contract_end_date: Optional[str] = None
         self.contract_expected_end_date: Optional[str] = None
         self.pay_group_id: Optional[str] = None
+        self.assignment_pay_group_id: Optional[str] = None
         self.international_assignment: Optional[bool] = None
         self.work_calendar_id: Optional[str] = None
         self.department: Optional[BasicDepartment] = None
@@ -145,6 +149,7 @@ class EmployeeBt(object):
         self.work_shift: Optional[Enum] = None
         self.talent_pool_id_list: Optional[List[str]] = None
         self.custom_org: Optional[str] = None
+        self.seniority_adjust_information_list: Optional[List[SeniorityAdjustInformation]] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -348,6 +353,10 @@ class EmployeeBtBuilder(object):
         self._employee_bt.pay_group_id = pay_group_id
         return self
 
+    def assignment_pay_group_id(self, assignment_pay_group_id: str) -> "EmployeeBtBuilder":
+        self._employee_bt.assignment_pay_group_id = assignment_pay_group_id
+        return self
+
     def international_assignment(self, international_assignment: bool) -> "EmployeeBtBuilder":
         self._employee_bt.international_assignment = international_assignment
         return self
@@ -395,6 +404,11 @@ class EmployeeBtBuilder(object):
 
     def custom_org(self, custom_org: str) -> "EmployeeBtBuilder":
         self._employee_bt.custom_org = custom_org
+        return self
+
+    def seniority_adjust_information_list(self, seniority_adjust_information_list: List[
+        SeniorityAdjustInformation]) -> "EmployeeBtBuilder":
+        self._employee_bt.seniority_adjust_information_list = seniority_adjust_information_list
         return self
 
     def build(self) -> "EmployeeBt":

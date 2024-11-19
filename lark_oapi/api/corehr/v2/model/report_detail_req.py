@@ -7,13 +7,13 @@ from .workforce_plan_detail_row import WorkforcePlanDetailRow
 
 class ReportDetailReq(object):
     _types = {
-        "wokforce_plan_id": str,
+        "workforce_plan_id": str,
         "centralized_reporting_project_id": str,
         "items": List[WorkforcePlanDetailRow],
     }
 
     def __init__(self, d=None):
-        self.wokforce_plan_id: Optional[str] = None
+        self.workforce_plan_id: Optional[str] = None
         self.centralized_reporting_project_id: Optional[str] = None
         self.items: Optional[List[WorkforcePlanDetailRow]] = None
         init(self, d, self._types)
@@ -27,8 +27,8 @@ class ReportDetailReqBuilder(object):
     def __init__(self) -> None:
         self._report_detail_req = ReportDetailReq()
 
-    def wokforce_plan_id(self, wokforce_plan_id: str) -> "ReportDetailReqBuilder":
-        self._report_detail_req.wokforce_plan_id = wokforce_plan_id
+    def workforce_plan_id(self, workforce_plan_id: str) -> "ReportDetailReqBuilder":
+        self._report_detail_req.workforce_plan_id = workforce_plan_id
         return self
 
     def centralized_reporting_project_id(self, centralized_reporting_project_id: str) -> "ReportDetailReqBuilder":

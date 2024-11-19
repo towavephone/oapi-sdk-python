@@ -85,6 +85,8 @@ from .employment import *
 from .employment_bp import *
 from .employment_leave_balance import *
 from .enum import *
+from .enum_field import *
+from .enums import *
 from .field_variable_sub_vlaue import *
 from .field_variable_sub_vlaue_for_review import *
 from .field_variable_value import *
@@ -155,6 +157,7 @@ from .operation_log_list_resp_item import *
 from .org_role import *
 from .org_role_update import *
 from .organization_domain_event_data import *
+from .organization_op_log import *
 from .orgdraft_department_id import *
 from .person_info import *
 from .person_info_bt import *
@@ -235,6 +238,8 @@ from .reorganization_info import *
 from .report_detail_req import *
 from .resident_tax import *
 from .resident_tax_for_update import *
+from .seniority_adjust_information import *
+from .seniority_adjust_information_for_edit import *
 from .signature_custom_field_v1 import *
 from .signature_custom_field_v2 import *
 from .signature_custom_field_value import *
@@ -268,6 +273,7 @@ from .signature_template_permission_info import *
 from .signature_template_region_info import *
 from .signature_template_setting import *
 from .signature_user_info import *
+from .start_process_param import *
 from .terminate_signature_fail_id_and_reason import *
 from .time_zone import *
 from .tranfer_employment_info import *
@@ -350,6 +356,11 @@ from .create_employee_request_body import *
 from .create_employee_request import *
 from .search_employee_request_body import *
 from .search_employee_request import *
+from .batch_employees_additional_job_request_body import *
+from .batch_employees_additional_job_request import *
+from .create_employees_additional_job_request import *
+from .delete_employees_additional_job_request import *
+from .patch_employees_additional_job_request import *
 from .batch_get_employees_bp_request_body import *
 from .batch_get_employees_bp_request import *
 from .batch_get_employees_job_data_request_body import *
@@ -377,6 +388,8 @@ from .patch_location_request import *
 from .create_location_address_request import *
 from .delete_location_address_request import *
 from .patch_location_address_request import *
+from .submit_v2_offboarding_request_body import *
+from .submit_v2_offboarding_request import *
 from .create_person_request import *
 from .patch_person_request import *
 from .complete_pre_hire_request import *
@@ -475,6 +488,13 @@ from .create_employee_response_body import *
 from .create_employee_response import *
 from .search_employee_response_body import *
 from .search_employee_response import *
+from .batch_employees_additional_job_response_body import *
+from .batch_employees_additional_job_response import *
+from .create_employees_additional_job_response_body import *
+from .create_employees_additional_job_response import *
+from .delete_employees_additional_job_response import *
+from .patch_employees_additional_job_response_body import *
+from .patch_employees_additional_job_response import *
 from .batch_get_employees_bp_response_body import *
 from .batch_get_employees_bp_response import *
 from .batch_get_employees_job_data_response_body import *
@@ -505,6 +525,8 @@ from .create_location_address_response_body import *
 from .create_location_address_response import *
 from .delete_location_address_response import *
 from .patch_location_address_response import *
+from .submit_v2_offboarding_response_body import *
+from .submit_v2_offboarding_response import *
 from .create_person_response_body import *
 from .create_person_response import *
 from .patch_person_response_body import *

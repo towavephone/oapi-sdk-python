@@ -84,6 +84,7 @@ from .set_app_badge_request import *
 from .list_app_recommend_rule_request import *
 from .contacts_range_configuration_application_request import *
 from .get_application_request import *
+from .list_application_request import *
 from .patch_application_request import *
 from .underauditlist_application_request import *
 from .department_overview_application_app_usage_request_body import *
@@ -115,6 +116,8 @@ from .contacts_range_configuration_application_response_body import *
 from .contacts_range_configuration_application_response import *
 from .get_application_response_body import *
 from .get_application_response import *
+from .list_application_response_body import *
+from .list_application_response import *
 from .patch_application_response import *
 from .underauditlist_application_response_body import *
 from .underauditlist_application_response import *
