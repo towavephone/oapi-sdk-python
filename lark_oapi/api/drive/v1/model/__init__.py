@@ -113,6 +113,8 @@ from .upload_part_media_request import *
 from .upload_prepare_media_request import *
 from .batch_query_meta_request import *
 from .auth_permission_member_request import *
+from .batch_create_permission_member_request_body import *
+from .batch_create_permission_member_request import *
 from .create_permission_member_request import *
 from .delete_permission_member_request_body import *
 from .delete_permission_member_request import *
@@ -203,6 +205,8 @@ from .batch_query_meta_response_body import *
 from .batch_query_meta_response import *
 from .auth_permission_member_response_body import *
 from .auth_permission_member_response import *
+from .batch_create_permission_member_response_body import *
+from .batch_create_permission_member_response import *
 from .create_permission_member_response_body import *
 from .create_permission_member_response import *
 from .delete_permission_member_response import *
@@ -221,6 +225,7 @@ from .delete_permission_public_password_response import *
 from .update_permission_public_password_response_body import *
 from .update_permission_public_password_response import *
 from .p2_drive_file_bitable_field_changed_v1 import *
+from .p2_drive_file_bitable_record_changed_v1 import *
 from .p2_drive_file_deleted_v1 import *
 from .p2_drive_file_edit_v1 import *
 from .p2_drive_file_permission_member_added_v1 import *

@@ -18,6 +18,10 @@ class UserOut(object):
         "reason": str,
         "approve_pass_time": str,
         "approve_apply_time": str,
+        "idempotent_id": str,
+        "correct_process_id": List[str],
+        "cancel_process_id": List[str],
+        "process_id": List[str],
     }
 
     def __init__(self, d=None):
@@ -32,6 +36,10 @@ class UserOut(object):
         self.reason: Optional[str] = None
         self.approve_pass_time: Optional[str] = None
         self.approve_apply_time: Optional[str] = None
+        self.idempotent_id: Optional[str] = None
+        self.correct_process_id: Optional[List[str]] = None
+        self.cancel_process_id: Optional[List[str]] = None
+        self.process_id: Optional[List[str]] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -85,6 +93,22 @@ class UserOutBuilder(object):
 
     def approve_apply_time(self, approve_apply_time: str) -> "UserOutBuilder":
         self._user_out.approve_apply_time = approve_apply_time
+        return self
+
+    def idempotent_id(self, idempotent_id: str) -> "UserOutBuilder":
+        self._user_out.idempotent_id = idempotent_id
+        return self
+
+    def correct_process_id(self, correct_process_id: List[str]) -> "UserOutBuilder":
+        self._user_out.correct_process_id = correct_process_id
+        return self
+
+    def cancel_process_id(self, cancel_process_id: List[str]) -> "UserOutBuilder":
+        self._user_out.cancel_process_id = cancel_process_id
+        return self
+
+    def process_id(self, process_id: List[str]) -> "UserOutBuilder":
+        self._user_out.process_id = process_id
         return self
 
     def build(self) -> "UserOut":

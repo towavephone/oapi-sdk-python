@@ -10,6 +10,10 @@ from .i18n import I18n
 from .i18n import I18n
 from .cost_center import CostCenter
 from .cost_center import CostCenter
+from .enum import Enum
+from .enum import Enum
+from .orgdraft_department_id import OrgdraftDepartmentId
+from .orgdraft_department_id import OrgdraftDepartmentId
 from .change_field_pair import ChangeFieldPair
 
 
@@ -29,10 +33,13 @@ class ReorganizationInfo(object):
         "target_cost_center": CostCenter,
         "original_is_confidential": bool,
         "target_is_confidential": bool,
-        "original_staffing_model": bool,
-        "target_staffing_model": bool,
+        "original_staffing_mode_option": Enum,
+        "target_staffing_mode_option": Enum,
         "original_parent_department_id": str,
         "target_parent_department_id": str,
+        "draft_target_parent_department_id": str,
+        "original_department_id_path": List[OrgdraftDepartmentId],
+        "target_department_id_path": List[OrgdraftDepartmentId],
         "custom_fields": List[ChangeFieldPair],
     }
 
@@ -51,10 +58,13 @@ class ReorganizationInfo(object):
         self.target_cost_center: Optional[CostCenter] = None
         self.original_is_confidential: Optional[bool] = None
         self.target_is_confidential: Optional[bool] = None
-        self.original_staffing_model: Optional[bool] = None
-        self.target_staffing_model: Optional[bool] = None
+        self.original_staffing_mode_option: Optional[Enum] = None
+        self.target_staffing_mode_option: Optional[Enum] = None
         self.original_parent_department_id: Optional[str] = None
         self.target_parent_department_id: Optional[str] = None
+        self.draft_target_parent_department_id: Optional[str] = None
+        self.original_department_id_path: Optional[List[OrgdraftDepartmentId]] = None
+        self.target_department_id_path: Optional[List[OrgdraftDepartmentId]] = None
         self.custom_fields: Optional[List[ChangeFieldPair]] = None
         init(self, d, self._types)
 
@@ -123,12 +133,12 @@ class ReorganizationInfoBuilder(object):
         self._reorganization_info.target_is_confidential = target_is_confidential
         return self
 
-    def original_staffing_model(self, original_staffing_model: bool) -> "ReorganizationInfoBuilder":
-        self._reorganization_info.original_staffing_model = original_staffing_model
+    def original_staffing_mode_option(self, original_staffing_mode_option: Enum) -> "ReorganizationInfoBuilder":
+        self._reorganization_info.original_staffing_mode_option = original_staffing_mode_option
         return self
 
-    def target_staffing_model(self, target_staffing_model: bool) -> "ReorganizationInfoBuilder":
-        self._reorganization_info.target_staffing_model = target_staffing_model
+    def target_staffing_mode_option(self, target_staffing_mode_option: Enum) -> "ReorganizationInfoBuilder":
+        self._reorganization_info.target_staffing_mode_option = target_staffing_mode_option
         return self
 
     def original_parent_department_id(self, original_parent_department_id: str) -> "ReorganizationInfoBuilder":
@@ -137,6 +147,20 @@ class ReorganizationInfoBuilder(object):
 
     def target_parent_department_id(self, target_parent_department_id: str) -> "ReorganizationInfoBuilder":
         self._reorganization_info.target_parent_department_id = target_parent_department_id
+        return self
+
+    def draft_target_parent_department_id(self, draft_target_parent_department_id: str) -> "ReorganizationInfoBuilder":
+        self._reorganization_info.draft_target_parent_department_id = draft_target_parent_department_id
+        return self
+
+    def original_department_id_path(self, original_department_id_path: List[
+        OrgdraftDepartmentId]) -> "ReorganizationInfoBuilder":
+        self._reorganization_info.original_department_id_path = original_department_id_path
+        return self
+
+    def target_department_id_path(self,
+                                  target_department_id_path: List[OrgdraftDepartmentId]) -> "ReorganizationInfoBuilder":
+        self._reorganization_info.target_department_id_path = target_department_id_path
         return self
 
     def custom_fields(self, custom_fields: List[ChangeFieldPair]) -> "ReorganizationInfoBuilder":

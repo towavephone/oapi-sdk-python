@@ -10,6 +10,7 @@ class BatchUpdateAppTableRecordRequest(BaseRequest):
     def __init__(self) -> None:
         super().__init__()
         self.user_id_type: Optional[str] = None
+        self.ignore_consistency_check: Optional[bool] = None
         self.app_token: Optional[str] = None
         self.table_id: Optional[str] = None
         self.request_body: Optional[BatchUpdateAppTableRecordRequestBody] = None
@@ -31,6 +32,11 @@ class BatchUpdateAppTableRecordRequestBuilder(object):
     def user_id_type(self, user_id_type: str) -> "BatchUpdateAppTableRecordRequestBuilder":
         self._batch_update_app_table_record_request.user_id_type = user_id_type
         self._batch_update_app_table_record_request.add_query("user_id_type", user_id_type)
+        return self
+
+    def ignore_consistency_check(self, ignore_consistency_check: bool) -> "BatchUpdateAppTableRecordRequestBuilder":
+        self._batch_update_app_table_record_request.ignore_consistency_check = ignore_consistency_check
+        self._batch_update_app_table_record_request.add_query("ignore_consistency_check", ignore_consistency_check)
         return self
 
     def app_token(self, app_token: str) -> "BatchUpdateAppTableRecordRequestBuilder":

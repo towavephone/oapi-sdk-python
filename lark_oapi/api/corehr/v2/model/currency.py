@@ -8,7 +8,7 @@ from .i18n import I18n
 class Currency(object):
     _types = {
         "currency_id": str,
-        "country_region_id": str,
+        "country_region_id_list": List[str],
         "currency_name": List[I18n],
         "numeric_code": int,
         "currency_alpha_3_code": str,
@@ -17,7 +17,7 @@ class Currency(object):
 
     def __init__(self, d=None):
         self.currency_id: Optional[str] = None
-        self.country_region_id: Optional[str] = None
+        self.country_region_id_list: Optional[List[str]] = None
         self.currency_name: Optional[List[I18n]] = None
         self.numeric_code: Optional[int] = None
         self.currency_alpha_3_code: Optional[str] = None
@@ -37,8 +37,8 @@ class CurrencyBuilder(object):
         self._currency.currency_id = currency_id
         return self
 
-    def country_region_id(self, country_region_id: str) -> "CurrencyBuilder":
-        self._currency.country_region_id = country_region_id
+    def country_region_id_list(self, country_region_id_list: List[str]) -> "CurrencyBuilder":
+        self._currency.country_region_id_list = country_region_id_list
         return self
 
     def currency_name(self, currency_name: List[I18n]) -> "CurrencyBuilder":

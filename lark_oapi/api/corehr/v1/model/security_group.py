@@ -4,6 +4,7 @@ from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from .name import Name
 from .name import Name
+from .org_truncation import OrgTruncation
 
 
 class SecurityGroup(object):
@@ -13,7 +14,10 @@ class SecurityGroup(object):
         "name": Name,
         "active_status": int,
         "description": Name,
+        "group_type": int,
+        "created_by": str,
         "update_time": str,
+        "org_truncation": List[OrgTruncation],
     }
 
     def __init__(self, d=None):
@@ -22,7 +26,10 @@ class SecurityGroup(object):
         self.name: Optional[Name] = None
         self.active_status: Optional[int] = None
         self.description: Optional[Name] = None
+        self.group_type: Optional[int] = None
+        self.created_by: Optional[str] = None
         self.update_time: Optional[str] = None
+        self.org_truncation: Optional[List[OrgTruncation]] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -54,8 +61,20 @@ class SecurityGroupBuilder(object):
         self._security_group.description = description
         return self
 
+    def group_type(self, group_type: int) -> "SecurityGroupBuilder":
+        self._security_group.group_type = group_type
+        return self
+
+    def created_by(self, created_by: str) -> "SecurityGroupBuilder":
+        self._security_group.created_by = created_by
+        return self
+
     def update_time(self, update_time: str) -> "SecurityGroupBuilder":
         self._security_group.update_time = update_time
+        return self
+
+    def org_truncation(self, org_truncation: List[OrgTruncation]) -> "SecurityGroupBuilder":
+        self._security_group.org_truncation = org_truncation
         return self
 
     def build(self) -> "SecurityGroup":

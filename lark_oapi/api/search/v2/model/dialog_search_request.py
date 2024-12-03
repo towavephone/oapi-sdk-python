@@ -3,6 +3,7 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from .scenario_context import ScenarioContext
+from .passage_param import PassageParam
 
 
 class DialogSearchRequest(object):
@@ -10,12 +11,18 @@ class DialogSearchRequest(object):
         "tool_raw_instruction": str,
         "scenario_context_schema_version": str,
         "scenario_context": ScenarioContext,
+        "agent_type": int,
+        "response_type": int,
+        "passage_param": PassageParam,
     }
 
     def __init__(self, d=None):
         self.tool_raw_instruction: Optional[str] = None
         self.scenario_context_schema_version: Optional[str] = None
         self.scenario_context: Optional[ScenarioContext] = None
+        self.agent_type: Optional[int] = None
+        self.response_type: Optional[int] = None
+        self.passage_param: Optional[PassageParam] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -37,6 +44,18 @@ class DialogSearchRequestBuilder(object):
 
     def scenario_context(self, scenario_context: ScenarioContext) -> "DialogSearchRequestBuilder":
         self._dialog_search_request.scenario_context = scenario_context
+        return self
+
+    def agent_type(self, agent_type: int) -> "DialogSearchRequestBuilder":
+        self._dialog_search_request.agent_type = agent_type
+        return self
+
+    def response_type(self, response_type: int) -> "DialogSearchRequestBuilder":
+        self._dialog_search_request.response_type = response_type
+        return self
+
+    def passage_param(self, passage_param: PassageParam) -> "DialogSearchRequestBuilder":
+        self._dialog_search_request.passage_param = passage_param
         return self
 
     def build(self) -> "DialogSearchRequest":

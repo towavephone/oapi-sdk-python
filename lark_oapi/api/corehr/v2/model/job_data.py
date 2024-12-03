@@ -21,6 +21,7 @@ class JobData(object):
         "working_hours_type_id": str,
         "work_location_id": str,
         "department_id": str,
+        "position_id": str,
         "job_id": str,
         "job_level_id": str,
         "job_grade_id": str,
@@ -41,6 +42,9 @@ class JobData(object):
         "work_shift": Enum,
         "compensation_type": Enum,
         "service_company": str,
+        "created_at": str,
+        "weekly_working_hours_v2": float,
+        "employee_subtype_id": str,
     }
 
     def __init__(self, d=None):
@@ -50,6 +54,7 @@ class JobData(object):
         self.working_hours_type_id: Optional[str] = None
         self.work_location_id: Optional[str] = None
         self.department_id: Optional[str] = None
+        self.position_id: Optional[str] = None
         self.job_id: Optional[str] = None
         self.job_level_id: Optional[str] = None
         self.job_grade_id: Optional[str] = None
@@ -70,6 +75,9 @@ class JobData(object):
         self.work_shift: Optional[Enum] = None
         self.compensation_type: Optional[Enum] = None
         self.service_company: Optional[str] = None
+        self.created_at: Optional[str] = None
+        self.weekly_working_hours_v2: Optional[float] = None
+        self.employee_subtype_id: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -103,6 +111,10 @@ class JobDataBuilder(object):
 
     def department_id(self, department_id: str) -> "JobDataBuilder":
         self._job_data.department_id = department_id
+        return self
+
+    def position_id(self, position_id: str) -> "JobDataBuilder":
+        self._job_data.position_id = position_id
         return self
 
     def job_id(self, job_id: str) -> "JobDataBuilder":
@@ -183,6 +195,18 @@ class JobDataBuilder(object):
 
     def service_company(self, service_company: str) -> "JobDataBuilder":
         self._job_data.service_company = service_company
+        return self
+
+    def created_at(self, created_at: str) -> "JobDataBuilder":
+        self._job_data.created_at = created_at
+        return self
+
+    def weekly_working_hours_v2(self, weekly_working_hours_v2: float) -> "JobDataBuilder":
+        self._job_data.weekly_working_hours_v2 = weekly_working_hours_v2
+        return self
+
+    def employee_subtype_id(self, employee_subtype_id: str) -> "JobDataBuilder":
+        self._job_data.employee_subtype_id = employee_subtype_id
         return self
 
     def build(self) -> "JobData":

@@ -8,11 +8,15 @@ class ScenarioContextExtra(object):
     _types = {
         "grounding_id": str,
         "model_key": str,
+        "specified_obj_ids": str,
+        "suggest_query_id": str,
     }
 
     def __init__(self, d=None):
         self.grounding_id: Optional[str] = None
         self.model_key: Optional[str] = None
+        self.specified_obj_ids: Optional[str] = None
+        self.suggest_query_id: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -30,6 +34,14 @@ class ScenarioContextExtraBuilder(object):
 
     def model_key(self, model_key: str) -> "ScenarioContextExtraBuilder":
         self._scenario_context_extra.model_key = model_key
+        return self
+
+    def specified_obj_ids(self, specified_obj_ids: str) -> "ScenarioContextExtraBuilder":
+        self._scenario_context_extra.specified_obj_ids = specified_obj_ids
+        return self
+
+    def suggest_query_id(self, suggest_query_id: str) -> "ScenarioContextExtraBuilder":
+        self._scenario_context_extra.suggest_query_id = suggest_query_id
         return self
 
     def build(self) -> "ScenarioContextExtra":

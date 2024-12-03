@@ -13,6 +13,8 @@ from ..model.contacts_range_configuration_application_request import ContactsRan
 from ..model.contacts_range_configuration_application_response import ContactsRangeConfigurationApplicationResponse
 from ..model.get_application_request import GetApplicationRequest
 from ..model.get_application_response import GetApplicationResponse
+from ..model.list_application_request import ListApplicationRequest
+from ..model.list_application_response import ListApplicationResponse
 from ..model.patch_application_request import PatchApplicationRequest
 from ..model.patch_application_response import PatchApplicationResponse
 from ..model.underauditlist_application_request import UnderauditlistApplicationRequest
@@ -97,6 +99,43 @@ class Application(object):
 
         # 反序列化
         response: GetApplicationResponse = JSON.unmarshal(str(resp.content, UTF_8), GetApplicationResponse)
+        response.raw = resp
+
+        return response
+
+    def list(self, request: ListApplicationRequest, option: Optional[RequestOption] = None) -> ListApplicationResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 添加 content-type
+        if request.body is not None:
+            option.headers[CONTENT_TYPE] = f"{APPLICATION_JSON}; charset=utf-8"
+
+        # 发起请求
+        resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: ListApplicationResponse = JSON.unmarshal(str(resp.content, UTF_8), ListApplicationResponse)
+        response.raw = resp
+
+        return response
+
+    async def alist(self, request: ListApplicationRequest,
+                    option: Optional[RequestOption] = None) -> ListApplicationResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: ListApplicationResponse = JSON.unmarshal(str(resp.content, UTF_8), ListApplicationResponse)
         response.raw = resp
 
         return response

@@ -30,6 +30,7 @@ from .department_id import *
 from .exteranl_instance_check import *
 from .exteranl_instance_check_response import *
 from .external_approval import *
+from .external_approval_item import *
 from .external_instance import *
 from .external_instance_form import *
 from .external_instance_link import *
@@ -71,6 +72,7 @@ from .my_ai_message_callback_request import *
 from .my_ai_object_scenario_context import *
 from .my_ai_present import *
 from .my_ai_present_card_variables import *
+from .my_ai_search_definition_scenario_context import *
 from .my_ai_simple_command_result import *
 from .my_ai_task import *
 from .node_approver import *

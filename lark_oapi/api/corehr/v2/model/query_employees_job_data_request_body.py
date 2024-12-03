@@ -10,6 +10,10 @@ class QueryEmployeesJobDataRequestBody(object):
         "data_date": str,
         "effective_date_start": str,
         "effective_date_end": str,
+        "department_id": str,
+        "employment_ids": List[str],
+        "primary_job_data": bool,
+        "assignment_start_reasons": List[str],
     }
 
     def __init__(self, d=None):
@@ -17,6 +21,10 @@ class QueryEmployeesJobDataRequestBody(object):
         self.data_date: Optional[str] = None
         self.effective_date_start: Optional[str] = None
         self.effective_date_end: Optional[str] = None
+        self.department_id: Optional[str] = None
+        self.employment_ids: Optional[List[str]] = None
+        self.primary_job_data: Optional[bool] = None
+        self.assignment_start_reasons: Optional[List[str]] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -42,6 +50,23 @@ class QueryEmployeesJobDataRequestBodyBuilder(object):
 
     def effective_date_end(self, effective_date_end: str) -> "QueryEmployeesJobDataRequestBodyBuilder":
         self._query_employees_job_data_request_body.effective_date_end = effective_date_end
+        return self
+
+    def department_id(self, department_id: str) -> "QueryEmployeesJobDataRequestBodyBuilder":
+        self._query_employees_job_data_request_body.department_id = department_id
+        return self
+
+    def employment_ids(self, employment_ids: List[str]) -> "QueryEmployeesJobDataRequestBodyBuilder":
+        self._query_employees_job_data_request_body.employment_ids = employment_ids
+        return self
+
+    def primary_job_data(self, primary_job_data: bool) -> "QueryEmployeesJobDataRequestBodyBuilder":
+        self._query_employees_job_data_request_body.primary_job_data = primary_job_data
+        return self
+
+    def assignment_start_reasons(self,
+                                 assignment_start_reasons: List[str]) -> "QueryEmployeesJobDataRequestBodyBuilder":
+        self._query_employees_job_data_request_body.assignment_start_reasons = assignment_start_reasons
         return self
 
     def build(self) -> "QueryEmployeesJobDataRequestBody":

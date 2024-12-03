@@ -9,14 +9,22 @@ class SearchBasicInfoBankBranchRequestBody(object):
         "bank_id_list": List[str],
         "bank_branch_id_list": List[str],
         "bank_branch_name_list": List[str],
+        "code_list": List[str],
+        "name_list": List[str],
         "status_list": List[int],
+        "update_start_time": str,
+        "update_end_time": str,
     }
 
     def __init__(self, d=None):
         self.bank_id_list: Optional[List[str]] = None
         self.bank_branch_id_list: Optional[List[str]] = None
         self.bank_branch_name_list: Optional[List[str]] = None
+        self.code_list: Optional[List[str]] = None
+        self.name_list: Optional[List[str]] = None
         self.status_list: Optional[List[int]] = None
+        self.update_start_time: Optional[str] = None
+        self.update_end_time: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -40,8 +48,24 @@ class SearchBasicInfoBankBranchRequestBodyBuilder(object):
         self._search_basic_info_bank_branch_request_body.bank_branch_name_list = bank_branch_name_list
         return self
 
+    def code_list(self, code_list: List[str]) -> "SearchBasicInfoBankBranchRequestBodyBuilder":
+        self._search_basic_info_bank_branch_request_body.code_list = code_list
+        return self
+
+    def name_list(self, name_list: List[str]) -> "SearchBasicInfoBankBranchRequestBodyBuilder":
+        self._search_basic_info_bank_branch_request_body.name_list = name_list
+        return self
+
     def status_list(self, status_list: List[int]) -> "SearchBasicInfoBankBranchRequestBodyBuilder":
         self._search_basic_info_bank_branch_request_body.status_list = status_list
+        return self
+
+    def update_start_time(self, update_start_time: str) -> "SearchBasicInfoBankBranchRequestBodyBuilder":
+        self._search_basic_info_bank_branch_request_body.update_start_time = update_start_time
+        return self
+
+    def update_end_time(self, update_end_time: str) -> "SearchBasicInfoBankBranchRequestBodyBuilder":
+        self._search_basic_info_bank_branch_request_body.update_end_time = update_end_time
         return self
 
     def build(self) -> "SearchBasicInfoBankBranchRequestBody":

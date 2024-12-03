@@ -12,18 +12,22 @@ class ReserveMeetingSetting(object):
         "topic": str,
         "action_permissions": List[ReserveActionPermission],
         "meeting_initial_type": int,
+        "meeting_connect": bool,
         "call_setting": ReserveCallSetting,
         "auto_record": bool,
         "assign_host_list": List[ReserveAssignHost],
+        "password": str,
     }
 
     def __init__(self, d=None):
         self.topic: Optional[str] = None
         self.action_permissions: Optional[List[ReserveActionPermission]] = None
         self.meeting_initial_type: Optional[int] = None
+        self.meeting_connect: Optional[bool] = None
         self.call_setting: Optional[ReserveCallSetting] = None
         self.auto_record: Optional[bool] = None
         self.assign_host_list: Optional[List[ReserveAssignHost]] = None
+        self.password: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -47,6 +51,10 @@ class ReserveMeetingSettingBuilder(object):
         self._reserve_meeting_setting.meeting_initial_type = meeting_initial_type
         return self
 
+    def meeting_connect(self, meeting_connect: bool) -> "ReserveMeetingSettingBuilder":
+        self._reserve_meeting_setting.meeting_connect = meeting_connect
+        return self
+
     def call_setting(self, call_setting: ReserveCallSetting) -> "ReserveMeetingSettingBuilder":
         self._reserve_meeting_setting.call_setting = call_setting
         return self
@@ -57,6 +65,10 @@ class ReserveMeetingSettingBuilder(object):
 
     def assign_host_list(self, assign_host_list: List[ReserveAssignHost]) -> "ReserveMeetingSettingBuilder":
         self._reserve_meeting_setting.assign_host_list = assign_host_list
+        return self
+
+    def password(self, password: str) -> "ReserveMeetingSettingBuilder":
+        self._reserve_meeting_setting.password = password
         return self
 
     def build(self) -> "ReserveMeetingSetting":

@@ -8,6 +8,9 @@ from .late_off_late_on_rule import LateOffLateOnRule
 from .rest_rule import RestRule
 from .overtime_rule import OvertimeRule
 from .rest_rule import RestRule
+from .shift_middle_time_rule import ShiftMiddleTimeRule
+from .shift_attendance_time_config import ShiftAttendanceTimeConfig
+from .late_off_late_on_setting import LateOffLateOnSetting
 
 
 class QueryShiftResponseBody(object):
@@ -26,6 +29,11 @@ class QueryShiftResponseBody(object):
         "overtime_rule": List[OvertimeRule],
         "day_type": int,
         "overtime_rest_time_rule": List[RestRule],
+        "late_minutes_as_serious_late": int,
+        "shift_middle_time_rule": ShiftMiddleTimeRule,
+        "shift_attendance_time_config": ShiftAttendanceTimeConfig,
+        "late_off_late_on_setting": LateOffLateOnSetting,
+        "id": str,
     }
 
     def __init__(self, d=None):
@@ -43,6 +51,11 @@ class QueryShiftResponseBody(object):
         self.overtime_rule: Optional[List[OvertimeRule]] = None
         self.day_type: Optional[int] = None
         self.overtime_rest_time_rule: Optional[List[RestRule]] = None
+        self.late_minutes_as_serious_late: Optional[int] = None
+        self.shift_middle_time_rule: Optional[ShiftMiddleTimeRule] = None
+        self.shift_attendance_time_config: Optional[ShiftAttendanceTimeConfig] = None
+        self.late_off_late_on_setting: Optional[LateOffLateOnSetting] = None
+        self.id: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -108,6 +121,28 @@ class QueryShiftResponseBodyBuilder(object):
 
     def overtime_rest_time_rule(self, overtime_rest_time_rule: List[RestRule]) -> "QueryShiftResponseBodyBuilder":
         self._query_shift_response_body.overtime_rest_time_rule = overtime_rest_time_rule
+        return self
+
+    def late_minutes_as_serious_late(self, late_minutes_as_serious_late: int) -> "QueryShiftResponseBodyBuilder":
+        self._query_shift_response_body.late_minutes_as_serious_late = late_minutes_as_serious_late
+        return self
+
+    def shift_middle_time_rule(self, shift_middle_time_rule: ShiftMiddleTimeRule) -> "QueryShiftResponseBodyBuilder":
+        self._query_shift_response_body.shift_middle_time_rule = shift_middle_time_rule
+        return self
+
+    def shift_attendance_time_config(self,
+                                     shift_attendance_time_config: ShiftAttendanceTimeConfig) -> "QueryShiftResponseBodyBuilder":
+        self._query_shift_response_body.shift_attendance_time_config = shift_attendance_time_config
+        return self
+
+    def late_off_late_on_setting(self,
+                                 late_off_late_on_setting: LateOffLateOnSetting) -> "QueryShiftResponseBodyBuilder":
+        self._query_shift_response_body.late_off_late_on_setting = late_off_late_on_setting
+        return self
+
+    def id(self, id: str) -> "QueryShiftResponseBodyBuilder":
+        self._query_shift_response_body.id = id
         return self
 
     def build(self) -> "QueryShiftResponseBody":

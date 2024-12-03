@@ -28,6 +28,9 @@ class SearchEmployeeRequestBody(object):
         "phone_number_list": List[str],
         "email_address_list": List[str],
         "department_id_list_include_sub": List[str],
+        "additional_national_id_number_list": List[str],
+        "citizenship_status_list": List[str],
+        "cost_center_id_list": List[str],
     }
 
     def __init__(self, d=None):
@@ -53,6 +56,9 @@ class SearchEmployeeRequestBody(object):
         self.phone_number_list: Optional[List[str]] = None
         self.email_address_list: Optional[List[str]] = None
         self.department_id_list_include_sub: Optional[List[str]] = None
+        self.additional_national_id_number_list: Optional[List[str]] = None
+        self.citizenship_status_list: Optional[List[str]] = None
+        self.cost_center_id_list: Optional[List[str]] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -156,6 +162,19 @@ class SearchEmployeeRequestBodyBuilder(object):
     def department_id_list_include_sub(self,
                                        department_id_list_include_sub: List[str]) -> "SearchEmployeeRequestBodyBuilder":
         self._search_employee_request_body.department_id_list_include_sub = department_id_list_include_sub
+        return self
+
+    def additional_national_id_number_list(self, additional_national_id_number_list: List[
+        str]) -> "SearchEmployeeRequestBodyBuilder":
+        self._search_employee_request_body.additional_national_id_number_list = additional_national_id_number_list
+        return self
+
+    def citizenship_status_list(self, citizenship_status_list: List[str]) -> "SearchEmployeeRequestBodyBuilder":
+        self._search_employee_request_body.citizenship_status_list = citizenship_status_list
+        return self
+
+    def cost_center_id_list(self, cost_center_id_list: List[str]) -> "SearchEmployeeRequestBodyBuilder":
+        self._search_employee_request_body.cost_center_id_list = cost_center_id_list
         return self
 
     def build(self) -> "SearchEmployeeRequestBody":

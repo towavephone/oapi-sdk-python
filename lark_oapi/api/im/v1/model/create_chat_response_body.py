@@ -32,6 +32,7 @@ class CreateChatResponseBody(object):
         "membership_approval": str,
         "moderation_permission": str,
         "restricted_mode_setting": RestrictedModeSetting,
+        "hide_member_count_setting": str,
     }
 
     def __init__(self, d=None):
@@ -59,6 +60,7 @@ class CreateChatResponseBody(object):
         self.membership_approval: Optional[str] = None
         self.moderation_permission: Optional[str] = None
         self.restricted_mode_setting: Optional[RestrictedModeSetting] = None
+        self.hide_member_count_setting: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -165,6 +167,10 @@ class CreateChatResponseBodyBuilder(object):
     def restricted_mode_setting(self,
                                 restricted_mode_setting: RestrictedModeSetting) -> "CreateChatResponseBodyBuilder":
         self._create_chat_response_body.restricted_mode_setting = restricted_mode_setting
+        return self
+
+    def hide_member_count_setting(self, hide_member_count_setting: str) -> "CreateChatResponseBodyBuilder":
+        self._create_chat_response_body.hide_member_count_setting = hide_member_count_setting
         return self
 
     def build(self) -> "CreateChatResponseBody":

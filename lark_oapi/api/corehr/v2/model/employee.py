@@ -2,8 +2,9 @@
 
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
-from .job_level import JobLevel
-from .job_family import JobFamily
+from .employee_job_level import EmployeeJobLevel
+from .employee_job_family import EmployeeJobFamily
+from .position import Position
 from .job import Job
 from .enum import Enum
 from .enum import Enum
@@ -26,17 +27,22 @@ from .enum import Enum
 class Employee(object):
     _types = {
         "employment_id": str,
+        "employment_id_v2": str,
         "ats_application_id": str,
         "prehire_id": str,
         "employee_number": str,
         "employee_type_id": str,
+        "employee_subtype_id": str,
         "department_id": str,
+        "department_id_v2": str,
         "job_level_id": str,
-        "job_level": JobLevel,
+        "job_level": EmployeeJobLevel,
         "job_grade_id": str,
         "work_location_id": str,
         "job_family_id": str,
-        "job_family": JobFamily,
+        "job_family": EmployeeJobFamily,
+        "position_id": str,
+        "position": Position,
         "job_id": str,
         "job": Job,
         "company_id": str,
@@ -50,6 +56,8 @@ class Employee(object):
         "probation_end_date": str,
         "direct_manager_id": str,
         "dotted_line_manager_id": str,
+        "direct_manager_id_v2": str,
+        "dotted_line_manager_id_v2": str,
         "employment_type": Enum,
         "employment_status": Enum,
         "expiration_date": str,
@@ -73,6 +81,7 @@ class Employee(object):
         "contract_end_date": str,
         "contract_expected_end_date": str,
         "pay_group_id": str,
+        "assignment_pay_group_id": str,
         "international_assignment": bool,
         "work_calendar_id": str,
         "department": BasicDepartment,
@@ -82,21 +91,27 @@ class Employee(object):
         "service_company": str,
         "compensation_type": Enum,
         "work_shift": Enum,
+        "custom_org": str,
     }
 
     def __init__(self, d=None):
         self.employment_id: Optional[str] = None
+        self.employment_id_v2: Optional[str] = None
         self.ats_application_id: Optional[str] = None
         self.prehire_id: Optional[str] = None
         self.employee_number: Optional[str] = None
         self.employee_type_id: Optional[str] = None
+        self.employee_subtype_id: Optional[str] = None
         self.department_id: Optional[str] = None
+        self.department_id_v2: Optional[str] = None
         self.job_level_id: Optional[str] = None
-        self.job_level: Optional[JobLevel] = None
+        self.job_level: Optional[EmployeeJobLevel] = None
         self.job_grade_id: Optional[str] = None
         self.work_location_id: Optional[str] = None
         self.job_family_id: Optional[str] = None
-        self.job_family: Optional[JobFamily] = None
+        self.job_family: Optional[EmployeeJobFamily] = None
+        self.position_id: Optional[str] = None
+        self.position: Optional[Position] = None
         self.job_id: Optional[str] = None
         self.job: Optional[Job] = None
         self.company_id: Optional[str] = None
@@ -110,6 +125,8 @@ class Employee(object):
         self.probation_end_date: Optional[str] = None
         self.direct_manager_id: Optional[str] = None
         self.dotted_line_manager_id: Optional[str] = None
+        self.direct_manager_id_v2: Optional[str] = None
+        self.dotted_line_manager_id_v2: Optional[str] = None
         self.employment_type: Optional[Enum] = None
         self.employment_status: Optional[Enum] = None
         self.expiration_date: Optional[str] = None
@@ -133,6 +150,7 @@ class Employee(object):
         self.contract_end_date: Optional[str] = None
         self.contract_expected_end_date: Optional[str] = None
         self.pay_group_id: Optional[str] = None
+        self.assignment_pay_group_id: Optional[str] = None
         self.international_assignment: Optional[bool] = None
         self.work_calendar_id: Optional[str] = None
         self.department: Optional[BasicDepartment] = None
@@ -142,6 +160,7 @@ class Employee(object):
         self.service_company: Optional[str] = None
         self.compensation_type: Optional[Enum] = None
         self.work_shift: Optional[Enum] = None
+        self.custom_org: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -155,6 +174,10 @@ class EmployeeBuilder(object):
 
     def employment_id(self, employment_id: str) -> "EmployeeBuilder":
         self._employee.employment_id = employment_id
+        return self
+
+    def employment_id_v2(self, employment_id_v2: str) -> "EmployeeBuilder":
+        self._employee.employment_id_v2 = employment_id_v2
         return self
 
     def ats_application_id(self, ats_application_id: str) -> "EmployeeBuilder":
@@ -173,15 +196,23 @@ class EmployeeBuilder(object):
         self._employee.employee_type_id = employee_type_id
         return self
 
+    def employee_subtype_id(self, employee_subtype_id: str) -> "EmployeeBuilder":
+        self._employee.employee_subtype_id = employee_subtype_id
+        return self
+
     def department_id(self, department_id: str) -> "EmployeeBuilder":
         self._employee.department_id = department_id
+        return self
+
+    def department_id_v2(self, department_id_v2: str) -> "EmployeeBuilder":
+        self._employee.department_id_v2 = department_id_v2
         return self
 
     def job_level_id(self, job_level_id: str) -> "EmployeeBuilder":
         self._employee.job_level_id = job_level_id
         return self
 
-    def job_level(self, job_level: JobLevel) -> "EmployeeBuilder":
+    def job_level(self, job_level: EmployeeJobLevel) -> "EmployeeBuilder":
         self._employee.job_level = job_level
         return self
 
@@ -197,8 +228,16 @@ class EmployeeBuilder(object):
         self._employee.job_family_id = job_family_id
         return self
 
-    def job_family(self, job_family: JobFamily) -> "EmployeeBuilder":
+    def job_family(self, job_family: EmployeeJobFamily) -> "EmployeeBuilder":
         self._employee.job_family = job_family
+        return self
+
+    def position_id(self, position_id: str) -> "EmployeeBuilder":
+        self._employee.position_id = position_id
+        return self
+
+    def position(self, position: Position) -> "EmployeeBuilder":
+        self._employee.position = position
         return self
 
     def job_id(self, job_id: str) -> "EmployeeBuilder":
@@ -251,6 +290,14 @@ class EmployeeBuilder(object):
 
     def dotted_line_manager_id(self, dotted_line_manager_id: str) -> "EmployeeBuilder":
         self._employee.dotted_line_manager_id = dotted_line_manager_id
+        return self
+
+    def direct_manager_id_v2(self, direct_manager_id_v2: str) -> "EmployeeBuilder":
+        self._employee.direct_manager_id_v2 = direct_manager_id_v2
+        return self
+
+    def dotted_line_manager_id_v2(self, dotted_line_manager_id_v2: str) -> "EmployeeBuilder":
+        self._employee.dotted_line_manager_id_v2 = dotted_line_manager_id_v2
         return self
 
     def employment_type(self, employment_type: Enum) -> "EmployeeBuilder":
@@ -345,6 +392,10 @@ class EmployeeBuilder(object):
         self._employee.pay_group_id = pay_group_id
         return self
 
+    def assignment_pay_group_id(self, assignment_pay_group_id: str) -> "EmployeeBuilder":
+        self._employee.assignment_pay_group_id = assignment_pay_group_id
+        return self
+
     def international_assignment(self, international_assignment: bool) -> "EmployeeBuilder":
         self._employee.international_assignment = international_assignment
         return self
@@ -379,6 +430,10 @@ class EmployeeBuilder(object):
 
     def work_shift(self, work_shift: Enum) -> "EmployeeBuilder":
         self._employee.work_shift = work_shift
+        return self
+
+    def custom_org(self, custom_org: str) -> "EmployeeBuilder":
+        self._employee.custom_org = custom_org
         return self
 
     def build(self) -> "Employee":

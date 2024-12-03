@@ -11,6 +11,8 @@ class BatchGetEmployeesJobDataRequestBody(object):
         "effective_date_start": str,
         "effective_date_end": str,
         "data_date": str,
+        "primary_job_data": bool,
+        "assignment_start_reasons": List[str],
     }
 
     def __init__(self, d=None):
@@ -19,6 +21,8 @@ class BatchGetEmployeesJobDataRequestBody(object):
         self.effective_date_start: Optional[str] = None
         self.effective_date_end: Optional[str] = None
         self.data_date: Optional[str] = None
+        self.primary_job_data: Optional[bool] = None
+        self.assignment_start_reasons: Optional[List[str]] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -48,6 +52,15 @@ class BatchGetEmployeesJobDataRequestBodyBuilder(object):
 
     def data_date(self, data_date: str) -> "BatchGetEmployeesJobDataRequestBodyBuilder":
         self._batch_get_employees_job_data_request_body.data_date = data_date
+        return self
+
+    def primary_job_data(self, primary_job_data: bool) -> "BatchGetEmployeesJobDataRequestBodyBuilder":
+        self._batch_get_employees_job_data_request_body.primary_job_data = primary_job_data
+        return self
+
+    def assignment_start_reasons(self,
+                                 assignment_start_reasons: List[str]) -> "BatchGetEmployeesJobDataRequestBodyBuilder":
+        self._batch_get_employees_job_data_request_body.assignment_start_reasons = assignment_start_reasons
         return self
 
     def build(self) -> "BatchGetEmployeesJobDataRequestBody":

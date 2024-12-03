@@ -21,10 +21,12 @@ from .education import Education
 from .education import Education
 from .personal_profile import PersonalProfile
 from .enum import Enum
+from .enum import Enum
 from .custom_field_data import CustomFieldData
 from .person_info_chn import PersonInfoChn
 from .resident_tax import ResidentTax
 from .enum import Enum
+from .i18n import I18n
 
 
 class PersonInfo(object):
@@ -61,6 +63,7 @@ class PersonInfo(object):
         "native_region": str,
         "hukou_type": Enum,
         "hukou_location": str,
+        "political_affiliations": List[Enum],
         "talent_id": str,
         "custom_fields": List[CustomFieldData],
         "national_id_number": str,
@@ -76,6 +79,14 @@ class PersonInfo(object):
         "first_entry_time": str,
         "leave_time": str,
         "religion": Enum,
+        "working_years_v2": float,
+        "created_at": str,
+        "updated_at": str,
+        "created_by": str,
+        "updated_by": str,
+        "bank_account_number": str,
+        "passport_number": str,
+        "former_employer": List[I18n],
     }
 
     def __init__(self, d=None):
@@ -111,6 +122,7 @@ class PersonInfo(object):
         self.native_region: Optional[str] = None
         self.hukou_type: Optional[Enum] = None
         self.hukou_location: Optional[str] = None
+        self.political_affiliations: Optional[List[Enum]] = None
         self.talent_id: Optional[str] = None
         self.custom_fields: Optional[List[CustomFieldData]] = None
         self.national_id_number: Optional[str] = None
@@ -126,6 +138,14 @@ class PersonInfo(object):
         self.first_entry_time: Optional[str] = None
         self.leave_time: Optional[str] = None
         self.religion: Optional[Enum] = None
+        self.working_years_v2: Optional[float] = None
+        self.created_at: Optional[str] = None
+        self.updated_at: Optional[str] = None
+        self.created_by: Optional[str] = None
+        self.updated_by: Optional[str] = None
+        self.bank_account_number: Optional[str] = None
+        self.passport_number: Optional[str] = None
+        self.former_employer: Optional[List[I18n]] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -265,6 +285,10 @@ class PersonInfoBuilder(object):
         self._person_info.hukou_location = hukou_location
         return self
 
+    def political_affiliations(self, political_affiliations: List[Enum]) -> "PersonInfoBuilder":
+        self._person_info.political_affiliations = political_affiliations
+        return self
+
     def talent_id(self, talent_id: str) -> "PersonInfoBuilder":
         self._person_info.talent_id = talent_id
         return self
@@ -323,6 +347,38 @@ class PersonInfoBuilder(object):
 
     def religion(self, religion: Enum) -> "PersonInfoBuilder":
         self._person_info.religion = religion
+        return self
+
+    def working_years_v2(self, working_years_v2: float) -> "PersonInfoBuilder":
+        self._person_info.working_years_v2 = working_years_v2
+        return self
+
+    def created_at(self, created_at: str) -> "PersonInfoBuilder":
+        self._person_info.created_at = created_at
+        return self
+
+    def updated_at(self, updated_at: str) -> "PersonInfoBuilder":
+        self._person_info.updated_at = updated_at
+        return self
+
+    def created_by(self, created_by: str) -> "PersonInfoBuilder":
+        self._person_info.created_by = created_by
+        return self
+
+    def updated_by(self, updated_by: str) -> "PersonInfoBuilder":
+        self._person_info.updated_by = updated_by
+        return self
+
+    def bank_account_number(self, bank_account_number: str) -> "PersonInfoBuilder":
+        self._person_info.bank_account_number = bank_account_number
+        return self
+
+    def passport_number(self, passport_number: str) -> "PersonInfoBuilder":
+        self._person_info.passport_number = passport_number
+        return self
+
+    def former_employer(self, former_employer: List[I18n]) -> "PersonInfoBuilder":
+        self._person_info.former_employer = former_employer
         return self
 
     def build(self) -> "PersonInfo":

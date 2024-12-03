@@ -6,6 +6,8 @@ from .profile_setting_employment_basic_info import ProfileSettingEmploymentBasic
 from .profile_setting_probation_info import ProfileSettingProbationInfo
 from .profile_setting_employment_record import ProfileSettingEmploymentRecord
 from .profile_setting_emp_contract_record import ProfileSettingEmpContractRecord
+from .profile_setting_custom_group import ProfileSettingCustomGroup
+from .job_data_custom_org import JobDataCustomOrg
 
 
 class ProfileSettingEmploymentInfo(object):
@@ -14,6 +16,8 @@ class ProfileSettingEmploymentInfo(object):
         "probation_info": ProfileSettingProbationInfo,
         "employment_record": ProfileSettingEmploymentRecord,
         "emp_contract_record": ProfileSettingEmpContractRecord,
+        "custom_groups": List[ProfileSettingCustomGroup],
+        "custom_org_groups": List[JobDataCustomOrg],
     }
 
     def __init__(self, d=None):
@@ -21,6 +25,8 @@ class ProfileSettingEmploymentInfo(object):
         self.probation_info: Optional[ProfileSettingProbationInfo] = None
         self.employment_record: Optional[ProfileSettingEmploymentRecord] = None
         self.emp_contract_record: Optional[ProfileSettingEmpContractRecord] = None
+        self.custom_groups: Optional[List[ProfileSettingCustomGroup]] = None
+        self.custom_org_groups: Optional[List[JobDataCustomOrg]] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -48,6 +54,14 @@ class ProfileSettingEmploymentInfoBuilder(object):
     def emp_contract_record(self,
                             emp_contract_record: ProfileSettingEmpContractRecord) -> "ProfileSettingEmploymentInfoBuilder":
         self._profile_setting_employment_info.emp_contract_record = emp_contract_record
+        return self
+
+    def custom_groups(self, custom_groups: List[ProfileSettingCustomGroup]) -> "ProfileSettingEmploymentInfoBuilder":
+        self._profile_setting_employment_info.custom_groups = custom_groups
+        return self
+
+    def custom_org_groups(self, custom_org_groups: List[JobDataCustomOrg]) -> "ProfileSettingEmploymentInfoBuilder":
+        self._profile_setting_employment_info.custom_org_groups = custom_org_groups
         return self
 
     def build(self) -> "ProfileSettingEmploymentInfo":

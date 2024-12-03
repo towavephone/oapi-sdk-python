@@ -3,6 +3,7 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 
 from lark_oapi.event.processor import IEventProcessor
+from .model.p2_corehr_common_data_meta_data_updated_v1 import P2CorehrCommonDataMetaDataUpdatedV1
 from .model.p2_corehr_contract_created_v1 import P2CorehrContractCreatedV1
 from .model.p2_corehr_contract_deleted_v1 import P2CorehrContractDeletedV1
 from .model.p2_corehr_contract_updated_v1 import P2CorehrContractUpdatedV1
@@ -19,13 +20,27 @@ from .model.p2_corehr_job_deleted_v1 import P2CorehrJobDeletedV1
 from .model.p2_corehr_job_updated_v1 import P2CorehrJobUpdatedV1
 from .model.p2_corehr_job_change_updated_v1 import P2CorehrJobChangeUpdatedV1
 from .model.p2_corehr_job_data_changed_v1 import P2CorehrJobDataChangedV1
+from .model.p2_corehr_job_data_created_v1 import P2CorehrJobDataCreatedV1
+from .model.p2_corehr_job_data_deleted_v1 import P2CorehrJobDataDeletedV1
 from .model.p2_corehr_job_data_employed_v1 import P2CorehrJobDataEmployedV1
+from .model.p2_corehr_job_data_updated_v1 import P2CorehrJobDataUpdatedV1
 from .model.p2_corehr_offboarding_updated_v1 import P2CorehrOffboardingUpdatedV1
 from .model.p2_corehr_org_role_authorization_updated_v1 import P2CorehrOrgRoleAuthorizationUpdatedV1
 from .model.p2_corehr_person_created_v1 import P2CorehrPersonCreatedV1
 from .model.p2_corehr_person_deleted_v1 import P2CorehrPersonDeletedV1
 from .model.p2_corehr_person_updated_v1 import P2CorehrPersonUpdatedV1
 from .model.p2_corehr_pre_hire_updated_v1 import P2CorehrPreHireUpdatedV1
+
+
+class P2CorehrCommonDataMetaDataUpdatedV1Processor(IEventProcessor[P2CorehrCommonDataMetaDataUpdatedV1]):
+    def __init__(self, f: Callable[[P2CorehrCommonDataMetaDataUpdatedV1], None]):
+        self.f = f
+
+    def type(self) -> Type[P2CorehrCommonDataMetaDataUpdatedV1]:
+        return P2CorehrCommonDataMetaDataUpdatedV1
+
+    def do(self, data: P2CorehrCommonDataMetaDataUpdatedV1) -> None:
+        self.f(data)
 
 
 class P2CorehrContractCreatedV1Processor(IEventProcessor[P2CorehrContractCreatedV1]):
@@ -204,6 +219,28 @@ class P2CorehrJobDataChangedV1Processor(IEventProcessor[P2CorehrJobDataChangedV1
         self.f(data)
 
 
+class P2CorehrJobDataCreatedV1Processor(IEventProcessor[P2CorehrJobDataCreatedV1]):
+    def __init__(self, f: Callable[[P2CorehrJobDataCreatedV1], None]):
+        self.f = f
+
+    def type(self) -> Type[P2CorehrJobDataCreatedV1]:
+        return P2CorehrJobDataCreatedV1
+
+    def do(self, data: P2CorehrJobDataCreatedV1) -> None:
+        self.f(data)
+
+
+class P2CorehrJobDataDeletedV1Processor(IEventProcessor[P2CorehrJobDataDeletedV1]):
+    def __init__(self, f: Callable[[P2CorehrJobDataDeletedV1], None]):
+        self.f = f
+
+    def type(self) -> Type[P2CorehrJobDataDeletedV1]:
+        return P2CorehrJobDataDeletedV1
+
+    def do(self, data: P2CorehrJobDataDeletedV1) -> None:
+        self.f(data)
+
+
 class P2CorehrJobDataEmployedV1Processor(IEventProcessor[P2CorehrJobDataEmployedV1]):
     def __init__(self, f: Callable[[P2CorehrJobDataEmployedV1], None]):
         self.f = f
@@ -212,6 +249,17 @@ class P2CorehrJobDataEmployedV1Processor(IEventProcessor[P2CorehrJobDataEmployed
         return P2CorehrJobDataEmployedV1
 
     def do(self, data: P2CorehrJobDataEmployedV1) -> None:
+        self.f(data)
+
+
+class P2CorehrJobDataUpdatedV1Processor(IEventProcessor[P2CorehrJobDataUpdatedV1]):
+    def __init__(self, f: Callable[[P2CorehrJobDataUpdatedV1], None]):
+        self.f = f
+
+    def type(self) -> Type[P2CorehrJobDataUpdatedV1]:
+        return P2CorehrJobDataUpdatedV1
+
+    def do(self, data: P2CorehrJobDataUpdatedV1) -> None:
         self.f(data)
 
 

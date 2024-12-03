@@ -5,6 +5,7 @@ from lark_oapi.core.construct import init
 from .i18n import I18n
 from .i18n import I18n
 from .leave_request_detail import LeaveRequestDetail
+from .leave_process_info import LeaveProcessInfo
 
 
 class LeaveRequest(object):
@@ -36,6 +37,8 @@ class LeaveRequest(object):
         "leave_correct_process_id": List[str],
         "leave_cancel_process_id": List[str],
         "leave_return_process_id": List[str],
+        "wd_paid_type": int,
+        "leave_correct_process_info": List[LeaveProcessInfo],
     }
 
     def __init__(self, d=None):
@@ -66,6 +69,8 @@ class LeaveRequest(object):
         self.leave_correct_process_id: Optional[List[str]] = None
         self.leave_cancel_process_id: Optional[List[str]] = None
         self.leave_return_process_id: Optional[List[str]] = None
+        self.wd_paid_type: Optional[int] = None
+        self.leave_correct_process_info: Optional[List[LeaveProcessInfo]] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -183,6 +188,14 @@ class LeaveRequestBuilder(object):
 
     def leave_return_process_id(self, leave_return_process_id: List[str]) -> "LeaveRequestBuilder":
         self._leave_request.leave_return_process_id = leave_return_process_id
+        return self
+
+    def wd_paid_type(self, wd_paid_type: int) -> "LeaveRequestBuilder":
+        self._leave_request.wd_paid_type = wd_paid_type
+        return self
+
+    def leave_correct_process_info(self, leave_correct_process_info: List[LeaveProcessInfo]) -> "LeaveRequestBuilder":
+        self._leave_request.leave_correct_process_info = leave_correct_process_info
         return self
 
     def build(self) -> "LeaveRequest":

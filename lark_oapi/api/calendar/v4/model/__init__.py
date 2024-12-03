@@ -1,5 +1,6 @@
 from .acl_scope import *
 from .acl_scope_event import *
+from .attachment import *
 from .attendee_chat_member import *
 from .book_meeting_room_data import *
 from .calendar import *
@@ -28,6 +29,7 @@ from .event_organizer import *
 from .event_search_filter import *
 from .event_time import *
 from .exchange_binding import *
+from .file import *
 from .free_time import *
 from .free_time_ai import *
 from .free_time_slot import *
@@ -39,7 +41,10 @@ from .meeting_settings import *
 from .my_ai_event_detail import *
 from .my_ai_event_info import *
 from .myai_card_status import *
+from .myai_doc_detail import *
 from .myai_reply import *
+from .myai_search_doc_result import *
+from .open_event_rsvp_info import *
 from .operate_card_data import *
 from .reminder import *
 from .room_meta import *
@@ -98,6 +103,7 @@ from .list_calendar_event_attendee_request import *
 from .list_calendar_event_attendee_chat_member_request import *
 from .create_calendar_event_meeting_chat_request import *
 from .delete_calendar_event_meeting_chat_request import *
+from .create_calendar_event_meeting_minute_request import *
 from .create_exchange_binding_request import *
 from .delete_exchange_binding_request import *
 from .get_exchange_binding_request import *
@@ -160,6 +166,8 @@ from .list_calendar_event_attendee_chat_member_response import *
 from .create_calendar_event_meeting_chat_response_body import *
 from .create_calendar_event_meeting_chat_response import *
 from .delete_calendar_event_meeting_chat_response import *
+from .create_calendar_event_meeting_minute_response_body import *
+from .create_calendar_event_meeting_minute_response import *
 from .create_exchange_binding_response_body import *
 from .create_exchange_binding_response import *
 from .delete_exchange_binding_response import *

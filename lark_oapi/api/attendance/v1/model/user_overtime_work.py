@@ -14,6 +14,10 @@ class UserOvertimeWork(object):
         "start_time": str,
         "end_time": str,
         "reason": str,
+        "idempotent_id": str,
+        "correct_process_id": List[str],
+        "cancel_process_id": List[str],
+        "process_id": List[str],
     }
 
     def __init__(self, d=None):
@@ -25,6 +29,10 @@ class UserOvertimeWork(object):
         self.start_time: Optional[str] = None
         self.end_time: Optional[str] = None
         self.reason: Optional[str] = None
+        self.idempotent_id: Optional[str] = None
+        self.correct_process_id: Optional[List[str]] = None
+        self.cancel_process_id: Optional[List[str]] = None
+        self.process_id: Optional[List[str]] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -66,6 +74,22 @@ class UserOvertimeWorkBuilder(object):
 
     def reason(self, reason: str) -> "UserOvertimeWorkBuilder":
         self._user_overtime_work.reason = reason
+        return self
+
+    def idempotent_id(self, idempotent_id: str) -> "UserOvertimeWorkBuilder":
+        self._user_overtime_work.idempotent_id = idempotent_id
+        return self
+
+    def correct_process_id(self, correct_process_id: List[str]) -> "UserOvertimeWorkBuilder":
+        self._user_overtime_work.correct_process_id = correct_process_id
+        return self
+
+    def cancel_process_id(self, cancel_process_id: List[str]) -> "UserOvertimeWorkBuilder":
+        self._user_overtime_work.cancel_process_id = cancel_process_id
+        return self
+
+    def process_id(self, process_id: List[str]) -> "UserOvertimeWorkBuilder":
+        self._user_overtime_work.process_id = process_id
         return self
 
     def build(self) -> "UserOvertimeWork":

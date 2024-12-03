@@ -1,5 +1,8 @@
 from .acl import *
 from .batch_item_result import *
+from .callback_action import *
+from .callback_action_value import *
+from .card_callback_request import *
 from .chunk import *
 from .connect_data_source import *
 from .connector_param import *
@@ -17,8 +20,10 @@ from .item import *
 from .item_content import *
 from .item_metadata import *
 from .item_record import *
+from .lingo_passage_param import *
 from .llm_model_config import *
 from .memory_message import *
+from .message_passage_param import *
 from .model_config import *
 from .model_param import *
 from .nls_model_config import *
@@ -27,6 +32,9 @@ from .passage import *
 from .passage_param import *
 from .patch_schema_property import *
 from .present import *
+from .present_data_callback_dialog_request import *
+from .rag_answer_response import *
+from .rag_probe import *
 from .scenario_context import *
 from .scenario_context_extra import *
 from .schema import *
@@ -43,6 +51,7 @@ from .schema_tag_options import *
 from .schema_type_definitions import *
 from .schema_user_ids_option import *
 from .seperate_passage import *
+from .status import *
 from .system_info import *
 from .template_card_variables import *
 from .user_info import *

@@ -2,6 +2,8 @@
 
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
+from .orgdraft_department_id import OrgdraftDepartmentId
+from .orgdraft_department_id import OrgdraftDepartmentId
 from .job_data_cost_center import JobDataCostCenter
 from .job_data_cost_center import JobDataCostCenter
 from .tranfer_employment_info import TranferEmploymentInfo
@@ -16,6 +18,9 @@ class TransferInfo(object):
         "probation_exist": bool,
         "original_department": str,
         "target_department": str,
+        "target_draft_department": str,
+        "original_department_id_path": List[OrgdraftDepartmentId],
+        "target_department_id_path": List[OrgdraftDepartmentId],
         "original_work_location": str,
         "target_work_location": str,
         "original_direct_manager": str,
@@ -30,6 +35,8 @@ class TransferInfo(object):
         "target_job_level": str,
         "original_workforce_type": str,
         "target_workforce_type": str,
+        "original_employee_subtype": str,
+        "target_employee_subtype": str,
         "original_company": str,
         "target_company": str,
         "original_contract_number": str,
@@ -64,6 +71,11 @@ class TransferInfo(object):
         "target_compensation_type": str,
         "original_service_company": str,
         "target_service_company": str,
+        "original_position": str,
+        "target_position": str,
+        "target_draft_position": str,
+        "original_social_security_city": str,
+        "target_social_security_city": str,
     }
 
     def __init__(self, d=None):
@@ -73,6 +85,9 @@ class TransferInfo(object):
         self.probation_exist: Optional[bool] = None
         self.original_department: Optional[str] = None
         self.target_department: Optional[str] = None
+        self.target_draft_department: Optional[str] = None
+        self.original_department_id_path: Optional[List[OrgdraftDepartmentId]] = None
+        self.target_department_id_path: Optional[List[OrgdraftDepartmentId]] = None
         self.original_work_location: Optional[str] = None
         self.target_work_location: Optional[str] = None
         self.original_direct_manager: Optional[str] = None
@@ -87,6 +102,8 @@ class TransferInfo(object):
         self.target_job_level: Optional[str] = None
         self.original_workforce_type: Optional[str] = None
         self.target_workforce_type: Optional[str] = None
+        self.original_employee_subtype: Optional[str] = None
+        self.target_employee_subtype: Optional[str] = None
         self.original_company: Optional[str] = None
         self.target_company: Optional[str] = None
         self.original_contract_number: Optional[str] = None
@@ -121,6 +138,11 @@ class TransferInfo(object):
         self.target_compensation_type: Optional[str] = None
         self.original_service_company: Optional[str] = None
         self.target_service_company: Optional[str] = None
+        self.original_position: Optional[str] = None
+        self.target_position: Optional[str] = None
+        self.target_draft_position: Optional[str] = None
+        self.original_social_security_city: Optional[str] = None
+        self.target_social_security_city: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -154,6 +176,19 @@ class TransferInfoBuilder(object):
 
     def target_department(self, target_department: str) -> "TransferInfoBuilder":
         self._transfer_info.target_department = target_department
+        return self
+
+    def target_draft_department(self, target_draft_department: str) -> "TransferInfoBuilder":
+        self._transfer_info.target_draft_department = target_draft_department
+        return self
+
+    def original_department_id_path(self,
+                                    original_department_id_path: List[OrgdraftDepartmentId]) -> "TransferInfoBuilder":
+        self._transfer_info.original_department_id_path = original_department_id_path
+        return self
+
+    def target_department_id_path(self, target_department_id_path: List[OrgdraftDepartmentId]) -> "TransferInfoBuilder":
+        self._transfer_info.target_department_id_path = target_department_id_path
         return self
 
     def original_work_location(self, original_work_location: str) -> "TransferInfoBuilder":
@@ -210,6 +245,14 @@ class TransferInfoBuilder(object):
 
     def target_workforce_type(self, target_workforce_type: str) -> "TransferInfoBuilder":
         self._transfer_info.target_workforce_type = target_workforce_type
+        return self
+
+    def original_employee_subtype(self, original_employee_subtype: str) -> "TransferInfoBuilder":
+        self._transfer_info.original_employee_subtype = original_employee_subtype
+        return self
+
+    def target_employee_subtype(self, target_employee_subtype: str) -> "TransferInfoBuilder":
+        self._transfer_info.target_employee_subtype = target_employee_subtype
         return self
 
     def original_company(self, original_company: str) -> "TransferInfoBuilder":
@@ -346,6 +389,26 @@ class TransferInfoBuilder(object):
 
     def target_service_company(self, target_service_company: str) -> "TransferInfoBuilder":
         self._transfer_info.target_service_company = target_service_company
+        return self
+
+    def original_position(self, original_position: str) -> "TransferInfoBuilder":
+        self._transfer_info.original_position = original_position
+        return self
+
+    def target_position(self, target_position: str) -> "TransferInfoBuilder":
+        self._transfer_info.target_position = target_position
+        return self
+
+    def target_draft_position(self, target_draft_position: str) -> "TransferInfoBuilder":
+        self._transfer_info.target_draft_position = target_draft_position
+        return self
+
+    def original_social_security_city(self, original_social_security_city: str) -> "TransferInfoBuilder":
+        self._transfer_info.original_social_security_city = original_social_security_city
+        return self
+
+    def target_social_security_city(self, target_social_security_city: str) -> "TransferInfoBuilder":
+        self._transfer_info.target_social_security_city = target_social_security_city
         return self
 
     def build(self) -> "TransferInfo":

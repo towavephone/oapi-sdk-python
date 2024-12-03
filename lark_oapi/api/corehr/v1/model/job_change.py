@@ -9,7 +9,7 @@ class JobChange(object):
     _types = {
         "job_change_id": str,
         "employment_id": str,
-        "status": str,
+        "status": int,
         "transfer_type_unique_identifier": str,
         "transfer_reason_unique_identifier": str,
         "process_id": str,
@@ -22,7 +22,7 @@ class JobChange(object):
     def __init__(self, d=None):
         self.job_change_id: Optional[str] = None
         self.employment_id: Optional[str] = None
-        self.status: Optional[str] = None
+        self.status: Optional[int] = None
         self.transfer_type_unique_identifier: Optional[str] = None
         self.transfer_reason_unique_identifier: Optional[str] = None
         self.process_id: Optional[str] = None
@@ -49,7 +49,7 @@ class JobChangeBuilder(object):
         self._job_change.employment_id = employment_id
         return self
 
-    def status(self, status: str) -> "JobChangeBuilder":
+    def status(self, status: int) -> "JobChangeBuilder":
         self._job_change.status = status
         return self
 

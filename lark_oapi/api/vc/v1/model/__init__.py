@@ -7,6 +7,9 @@ from .custom_list import *
 from .department_id import *
 from .device import *
 from .disable_inform_config import *
+from .key_point import *
+from .key_point_match_detail import *
+from .key_point_match_details import *
 from .material import *
 from .material_delete_result import *
 from .material_review_result import *
@@ -14,13 +17,16 @@ from .material_upload_result import *
 from .meeting import *
 from .meeting_recording import *
 from .meeting_ability import *
+from .meeting_analyze_output import *
 from .meeting_event_meeting import *
 from .meeting_event_user import *
 from .meeting_info import *
 from .meeting_invite_status import *
 from .meeting_participant import *
 from .meeting_participant_result import *
+from .meeting_security_setting import *
 from .meeting_user import *
+from .meeting_webinar_setting import *
 from .my_ai_av_plugin_card_status import *
 from .my_ai_av_plugin_card_variables import *
 from .my_ai_av_plugin_card_varibales import *
@@ -49,6 +55,9 @@ from .my_ai_vc_meeting_todo_task_result import *
 from .my_ai_vc_room_extra import *
 from .my_ai_vc_room_request_common_param import *
 from .my_ai_vc_room_scenario_context import *
+from .objective_check import *
+from .objective_check_output import *
+from .objective_check_param import *
 from .options import *
 from .participant import *
 from .participant_quality import *
@@ -73,6 +82,7 @@ from .reserve_meeting_setting import *
 from .reserve_permission_checker import *
 from .reserve_scope_config import *
 from .reserve_scope_config_event import *
+from .reserved_room import *
 from .room import *
 from .room_config import *
 from .room_digital_signage import *
@@ -83,6 +93,8 @@ from .room_meeting_reservation import *
 from .room_status import *
 from .room_status_event import *
 from .scope_config import *
+from .subjective_check import *
+from .subjective_check_output import *
 from .subscribe_department import *
 from .subscribe_user import *
 from .subscribe_user_event import *

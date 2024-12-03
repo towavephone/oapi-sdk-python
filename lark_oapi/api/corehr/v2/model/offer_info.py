@@ -12,6 +12,7 @@ class OfferInfo(object):
         "offer_hr_id": str,
         "department_id": str,
         "direct_leader_id": str,
+        "dotted_line_manager_id": str,
         "job_id": str,
         "job_family_id": str,
         "job_level_id": str,
@@ -28,6 +29,7 @@ class OfferInfo(object):
         "recruitment_type_id": str,
         "probation_period": str,
         "employee_type_id": str,
+        "employee_subtype_id": str,
         "employment_type_id": str,
         "work_email": str,
         "duration_type_id": str,
@@ -42,6 +44,17 @@ class OfferInfo(object):
         "service_company": str,
         "work_shift": str,
         "compensation_type": str,
+        "work_location_id": str,
+        "onboarding_address_id": str,
+        "office_address_id": str,
+        "position_id": str,
+        "working_calendar_id": str,
+        "working_hours_type": str,
+        "pay_group_id": str,
+        "flow_id": str,
+        "check_in_time": str,
+        "check_in_method": str,
+        "seniority_date": str,
     }
 
     def __init__(self, d=None):
@@ -49,6 +62,7 @@ class OfferInfo(object):
         self.offer_hr_id: Optional[str] = None
         self.department_id: Optional[str] = None
         self.direct_leader_id: Optional[str] = None
+        self.dotted_line_manager_id: Optional[str] = None
         self.job_id: Optional[str] = None
         self.job_family_id: Optional[str] = None
         self.job_level_id: Optional[str] = None
@@ -65,6 +79,7 @@ class OfferInfo(object):
         self.recruitment_type_id: Optional[str] = None
         self.probation_period: Optional[str] = None
         self.employee_type_id: Optional[str] = None
+        self.employee_subtype_id: Optional[str] = None
         self.employment_type_id: Optional[str] = None
         self.work_email: Optional[str] = None
         self.duration_type_id: Optional[str] = None
@@ -79,6 +94,17 @@ class OfferInfo(object):
         self.service_company: Optional[str] = None
         self.work_shift: Optional[str] = None
         self.compensation_type: Optional[str] = None
+        self.work_location_id: Optional[str] = None
+        self.onboarding_address_id: Optional[str] = None
+        self.office_address_id: Optional[str] = None
+        self.position_id: Optional[str] = None
+        self.working_calendar_id: Optional[str] = None
+        self.working_hours_type: Optional[str] = None
+        self.pay_group_id: Optional[str] = None
+        self.flow_id: Optional[str] = None
+        self.check_in_time: Optional[str] = None
+        self.check_in_method: Optional[str] = None
+        self.seniority_date: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -104,6 +130,10 @@ class OfferInfoBuilder(object):
 
     def direct_leader_id(self, direct_leader_id: str) -> "OfferInfoBuilder":
         self._offer_info.direct_leader_id = direct_leader_id
+        return self
+
+    def dotted_line_manager_id(self, dotted_line_manager_id: str) -> "OfferInfoBuilder":
+        self._offer_info.dotted_line_manager_id = dotted_line_manager_id
         return self
 
     def job_id(self, job_id: str) -> "OfferInfoBuilder":
@@ -170,6 +200,10 @@ class OfferInfoBuilder(object):
         self._offer_info.employee_type_id = employee_type_id
         return self
 
+    def employee_subtype_id(self, employee_subtype_id: str) -> "OfferInfoBuilder":
+        self._offer_info.employee_subtype_id = employee_subtype_id
+        return self
+
     def employment_type_id(self, employment_type_id: str) -> "OfferInfoBuilder":
         self._offer_info.employment_type_id = employment_type_id
         return self
@@ -224,6 +258,50 @@ class OfferInfoBuilder(object):
 
     def compensation_type(self, compensation_type: str) -> "OfferInfoBuilder":
         self._offer_info.compensation_type = compensation_type
+        return self
+
+    def work_location_id(self, work_location_id: str) -> "OfferInfoBuilder":
+        self._offer_info.work_location_id = work_location_id
+        return self
+
+    def onboarding_address_id(self, onboarding_address_id: str) -> "OfferInfoBuilder":
+        self._offer_info.onboarding_address_id = onboarding_address_id
+        return self
+
+    def office_address_id(self, office_address_id: str) -> "OfferInfoBuilder":
+        self._offer_info.office_address_id = office_address_id
+        return self
+
+    def position_id(self, position_id: str) -> "OfferInfoBuilder":
+        self._offer_info.position_id = position_id
+        return self
+
+    def working_calendar_id(self, working_calendar_id: str) -> "OfferInfoBuilder":
+        self._offer_info.working_calendar_id = working_calendar_id
+        return self
+
+    def working_hours_type(self, working_hours_type: str) -> "OfferInfoBuilder":
+        self._offer_info.working_hours_type = working_hours_type
+        return self
+
+    def pay_group_id(self, pay_group_id: str) -> "OfferInfoBuilder":
+        self._offer_info.pay_group_id = pay_group_id
+        return self
+
+    def flow_id(self, flow_id: str) -> "OfferInfoBuilder":
+        self._offer_info.flow_id = flow_id
+        return self
+
+    def check_in_time(self, check_in_time: str) -> "OfferInfoBuilder":
+        self._offer_info.check_in_time = check_in_time
+        return self
+
+    def check_in_method(self, check_in_method: str) -> "OfferInfoBuilder":
+        self._offer_info.check_in_method = check_in_method
+        return self
+
+    def seniority_date(self, seniority_date: str) -> "OfferInfoBuilder":
+        self._offer_info.seniority_date = seniority_date
         return self
 
     def build(self) -> "OfferInfo":

@@ -6,6 +6,7 @@ from .application_offer_basic_info import ApplicationOfferBasicInfo
 from .application_offer_salary_plan import ApplicationOfferSalaryPlan
 from .offer_job_info import OfferJobInfo
 from .application_offer_custom_module import ApplicationOfferCustomModule
+from .offer_send_record import OfferSendRecord
 
 
 class Offer(object):
@@ -19,6 +20,8 @@ class Offer(object):
         "offer_type": int,
         "job_info": OfferJobInfo,
         "customized_module_list": List[ApplicationOfferCustomModule],
+        "job_requirement_id": str,
+        "offer_send_record_list": List[OfferSendRecord],
     }
 
     def __init__(self, d=None):
@@ -31,6 +34,8 @@ class Offer(object):
         self.offer_type: Optional[int] = None
         self.job_info: Optional[OfferJobInfo] = None
         self.customized_module_list: Optional[List[ApplicationOfferCustomModule]] = None
+        self.job_requirement_id: Optional[str] = None
+        self.offer_send_record_list: Optional[List[OfferSendRecord]] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -76,6 +81,14 @@ class OfferBuilder(object):
 
     def customized_module_list(self, customized_module_list: List[ApplicationOfferCustomModule]) -> "OfferBuilder":
         self._offer.customized_module_list = customized_module_list
+        return self
+
+    def job_requirement_id(self, job_requirement_id: str) -> "OfferBuilder":
+        self._offer.job_requirement_id = job_requirement_id
+        return self
+
+    def offer_send_record_list(self, offer_send_record_list: List[OfferSendRecord]) -> "OfferBuilder":
+        self._offer.offer_send_record_list = offer_send_record_list
         return self
 
     def build(self) -> "Offer":

@@ -32,6 +32,8 @@ class JobRequirement(object):
         "customized_data_list": List[JobRequirementCustomizedData],
         "process_type": int,
         "job_type_id": str,
+        "job_id_list": List[str],
+        "employment_job_id": str,
     }
 
     def __init__(self, d=None):
@@ -60,6 +62,8 @@ class JobRequirement(object):
         self.customized_data_list: Optional[List[JobRequirementCustomizedData]] = None
         self.process_type: Optional[int] = None
         self.job_type_id: Optional[str] = None
+        self.job_id_list: Optional[List[str]] = None
+        self.employment_job_id: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -169,6 +173,14 @@ class JobRequirementBuilder(object):
 
     def job_type_id(self, job_type_id: str) -> "JobRequirementBuilder":
         self._job_requirement.job_type_id = job_type_id
+        return self
+
+    def job_id_list(self, job_id_list: List[str]) -> "JobRequirementBuilder":
+        self._job_requirement.job_id_list = job_id_list
+        return self
+
+    def employment_job_id(self, employment_job_id: str) -> "JobRequirementBuilder":
+        self._job_requirement.employment_job_id = employment_job_id
         return self
 
     def build(self) -> "JobRequirement":

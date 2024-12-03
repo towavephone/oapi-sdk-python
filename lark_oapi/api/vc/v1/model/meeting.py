@@ -13,10 +13,12 @@ class Meeting(object):
         "topic": str,
         "url": str,
         "meeting_no": str,
+        "password": str,
         "create_time": int,
         "start_time": int,
         "end_time": int,
         "host_user": MeetingUser,
+        "meeting_connect": bool,
         "status": int,
         "participant_count": int,
         "participant_count_accumulated": int,
@@ -29,10 +31,12 @@ class Meeting(object):
         self.topic: Optional[str] = None
         self.url: Optional[str] = None
         self.meeting_no: Optional[str] = None
+        self.password: Optional[str] = None
         self.create_time: Optional[int] = None
         self.start_time: Optional[int] = None
         self.end_time: Optional[int] = None
         self.host_user: Optional[MeetingUser] = None
+        self.meeting_connect: Optional[bool] = None
         self.status: Optional[int] = None
         self.participant_count: Optional[int] = None
         self.participant_count_accumulated: Optional[int] = None
@@ -65,6 +69,10 @@ class MeetingBuilder(object):
         self._meeting.meeting_no = meeting_no
         return self
 
+    def password(self, password: str) -> "MeetingBuilder":
+        self._meeting.password = password
+        return self
+
     def create_time(self, create_time: int) -> "MeetingBuilder":
         self._meeting.create_time = create_time
         return self
@@ -79,6 +87,10 @@ class MeetingBuilder(object):
 
     def host_user(self, host_user: MeetingUser) -> "MeetingBuilder":
         self._meeting.host_user = host_user
+        return self
+
+    def meeting_connect(self, meeting_connect: bool) -> "MeetingBuilder":
+        self._meeting.meeting_connect = meeting_connect
         return self
 
     def status(self, status: int) -> "MeetingBuilder":

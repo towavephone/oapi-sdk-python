@@ -10,6 +10,9 @@ from .process_abstract_item import ProcessAbstractItem
 from .process_todo_item import ProcessTodoItem
 from .process_cc_item import ProcessCcItem
 from .process_done_item import ProcessDoneItem
+from .process_system_todo_item import ProcessSystemTodoItem
+from .process_system_done_item import ProcessSystemDoneItem
+from .process_comment_info import ProcessCommentInfo
 
 
 class GetProcessResponseBody(object):
@@ -29,6 +32,12 @@ class GetProcessResponseBody(object):
         "todos": List[ProcessTodoItem],
         "cc_list": List[ProcessCcItem],
         "done_list": List[ProcessDoneItem],
+        "properties": int,
+        "system_todos": List[ProcessSystemTodoItem],
+        "system_done_list": List[ProcessSystemDoneItem],
+        "comment_infos": List[ProcessCommentInfo],
+        "original_process_id": str,
+        "is_last_completed_correct_process": bool,
     }
 
     def __init__(self, d=None):
@@ -47,6 +56,12 @@ class GetProcessResponseBody(object):
         self.todos: Optional[List[ProcessTodoItem]] = None
         self.cc_list: Optional[List[ProcessCcItem]] = None
         self.done_list: Optional[List[ProcessDoneItem]] = None
+        self.properties: Optional[int] = None
+        self.system_todos: Optional[List[ProcessSystemTodoItem]] = None
+        self.system_done_list: Optional[List[ProcessSystemDoneItem]] = None
+        self.comment_infos: Optional[List[ProcessCommentInfo]] = None
+        self.original_process_id: Optional[str] = None
+        self.is_last_completed_correct_process: Optional[bool] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -116,6 +131,31 @@ class GetProcessResponseBodyBuilder(object):
 
     def done_list(self, done_list: List[ProcessDoneItem]) -> "GetProcessResponseBodyBuilder":
         self._get_process_response_body.done_list = done_list
+        return self
+
+    def properties(self, properties: int) -> "GetProcessResponseBodyBuilder":
+        self._get_process_response_body.properties = properties
+        return self
+
+    def system_todos(self, system_todos: List[ProcessSystemTodoItem]) -> "GetProcessResponseBodyBuilder":
+        self._get_process_response_body.system_todos = system_todos
+        return self
+
+    def system_done_list(self, system_done_list: List[ProcessSystemDoneItem]) -> "GetProcessResponseBodyBuilder":
+        self._get_process_response_body.system_done_list = system_done_list
+        return self
+
+    def comment_infos(self, comment_infos: List[ProcessCommentInfo]) -> "GetProcessResponseBodyBuilder":
+        self._get_process_response_body.comment_infos = comment_infos
+        return self
+
+    def original_process_id(self, original_process_id: str) -> "GetProcessResponseBodyBuilder":
+        self._get_process_response_body.original_process_id = original_process_id
+        return self
+
+    def is_last_completed_correct_process(self,
+                                          is_last_completed_correct_process: bool) -> "GetProcessResponseBodyBuilder":
+        self._get_process_response_body.is_last_completed_correct_process = is_last_completed_correct_process
         return self
 
     def build(self) -> "GetProcessResponseBody":
